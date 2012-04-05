@@ -7,7 +7,7 @@ class lib_controller {
 	
 	public function __construct($addr)
 	{
-		$this->template = lib_View::factory($this->template)->set('view', lib_View::factory($addr[1].'/'.$addr[2]));
+		$this->template = lib_View::factory($this->template)->set('view', lib_View::factory($addr['controller'].'/'.$addr['action']));
 		
 		try {
 			$this->model = lib_Model::factory('skoczek');
@@ -23,7 +23,7 @@ class lib_controller {
 	public function after() 
 	{
 	}
-	
+		
 	public function __destruct()
 	{
 		if($this->auto_render)

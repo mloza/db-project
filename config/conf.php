@@ -1,3 +1,5 @@
-<?php 
+<?php
 
-return array( 'default' => array ('controller' => 'Skoczek', 'action' => 'index'));
+return array(
+		'default' => array('controller' => 'Dashboard', 'action' => 'index'),
+		'url' => '/');

@@ -12,8 +12,14 @@ class lib_View {
 	
 	public function __construct($viewname)
 	{
-		if(file_exists('views/'.$viewname.'.php')) $this->template = 'views/'.$viewname.'.php';
-		else throw new Exception("View file does not exists");
+		if(file_exists(__DIR__.'/../views/'.$viewname.'.php')) $this->template = __DIR__.'/../views/'.$viewname.'.php';
+		else throw new Exception("View file does not exists, trying to load: ".$viewname);
+	}
+	
+	public function __get($name)
+	{
+		if(!empty($this->vars[$name])) return $this->vars[$name];
+		else throw new Exception("Variable does not exists"); 
 	}
 	
 	public function __set($name, $value)
@@ -29,14 +35,19 @@ class lib_View {
 	
 	public function __toString()
 	{
-		return $this->render();
+		try {
+			return $this->render();
+		} catch(Exception $e)
+		{
+			return $e->getMessage();
+		}
 	}
 	
 	public function render()
 	{
 		extract($this->vars);
 		ob_start();
-			require(__DIR__.'/../'.$this->template);
+			require($this->template);
 		return ob_get_clean();
 	}
 }
