@@ -12,7 +12,16 @@ class lib_View {
 	
 	public function __construct($viewname)
 	{
-		if(file_exists(__DIR__.'/../views/'.$viewname.'.php')) $this->template = __DIR__.'/../views/'.$viewname.'.php';
+		if(file_exists(__DIR__.'/../views/'.$viewname.'.php')) 
+		{
+			$viewname = explode('/', $viewname);
+			foreach($viewname as $i=>$v)
+			{
+				$viewname[$i] = ucfirst($v);
+			}
+			$viewname = join('/', $viewname);
+			$this->template = __DIR__.'/../views/'.$viewname.'.php';
+		}
 		else throw new Exception("View file does not exists, trying to load: ".$viewname);
 	}
 	
