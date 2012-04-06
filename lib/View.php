@@ -17,7 +17,7 @@ class lib_View {
 			$viewname = explode('/', $viewname);
 			foreach($viewname as $i=>$v)
 			{
-				$viewname[$i] = ucfirst($v);
+				$viewname[$i] = ucfirst($v); // asd
 			}
 			$viewname = join('/', $viewname);
 			$this->template = __DIR__.'/../views/'.$viewname.'.php';
