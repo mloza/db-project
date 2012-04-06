@@ -15,7 +15,7 @@ class lib_View {
 		$viewname = explode('/', $viewname);
 		//foreach($viewname as $i=>$v)
 		//{
-			$viewname[0] = ucfirst($v); // asd
+			$viewname[0] = ucfirst($viewname[0]); // asd
 		//}
 		$viewname = join('/', $viewname);
 		
