@@ -9,7 +9,7 @@ spl_autoload_register(array('Autoload', 'load'));
 
 //load configuration
 $config = include('config/conf.php');
-$DB = Lib_Database::Instance();
+$DB = lib_Database::Instance();
 
 //dispatch address
 //$addr = explode('/', $_SERVER['REQUEST_URI']);

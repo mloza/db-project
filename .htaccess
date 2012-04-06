@@ -1,7 +1,7 @@
 php_flag display_errors on
 
 RewriteEngine On
-RewriteBase /
+RewriteBase /projects/abmp/db-project/
 RewriteRule ^(.*).html$ index.php
 
 RewriteCond %{REQUEST_FILENAME} !-f

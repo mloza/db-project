@@ -2,4 +2,4 @@
 
 return array(
 		'default' => array('controller' => 'Dashboard', 'action' => 'index'),
-		'url' => '/');
+		'url' => '/projects/abmp/db-project/');
