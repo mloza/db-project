@@ -18,7 +18,7 @@ preg_match('@'.$config['url']."(?P<controller>[^./]+)(/(?P<action>[^./]+))?(/(?P
 if(empty($addr['controller'])) $addr['controller'] = $config['default']['controller'];
 if(empty($addr['action'])) $addr['action'] = $config['default']['action'];
 
-$type = "Controller_".$addr['controller'];
+$type = "controller_".$addr['controller'];
 $addr['action'] = 'action_'.$addr['action'];
 $controller = new $type($addr);
 $controller->before();
