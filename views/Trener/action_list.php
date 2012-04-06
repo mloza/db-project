@@ -39,8 +39,8 @@
 								<td> <?php echo $trener->dataSmierci ?></td>
 								<td> <?php echo $trener->odKiedy ?></td>
 								<td class="table-actions">
-								<a href="/trener/edit/<?php echo $trener->idTrenera ?>.html" title="Edycja" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
-								<a href="/trener/delete/<?php echo $trener->idTrenera ?>.html" title="usuń" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+								<a href="/Trener/edit/<?php echo $trener->idTrenera ?>.html" title="Edycja" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
+								<a href="/Trener/delete/<?php echo $trener->idTrenera ?>.html" title="usuń" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
 							</td>
 							</tr>	
 					<?php }?>					

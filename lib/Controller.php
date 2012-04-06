@@ -1,6 +1,6 @@
 <?php
 
-class lib_controller {
+class Lib_Controller {
 	protected $template = 'templates/default';
 	protected $auto_render = true;
 	protected $model;

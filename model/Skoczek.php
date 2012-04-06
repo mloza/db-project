@@ -1,5 +1,5 @@
 <?php
-class Model_Skoczek extends lib_Model {
+class Model_Skoczek extends Lib_Model {
 
 	public function getJumpers($limit = 30, $offset = 0) {
 		$q = $this->db->prepare("SELECT * FROM skoczek LIMIT 30 OFFSET 0");

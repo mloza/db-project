@@ -1,6 +1,6 @@
 <?php 
 
-class lib_model {
+class Lib_Model {
 	
 	protected $db;
 	

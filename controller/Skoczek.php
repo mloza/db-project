@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Skoczek extends lib_Controller {
+class Controller_Skoczek extends Lib_Controller {
 		
 	public function index() {
 		//print_r($this->model->getJumpers()->fetchObject());

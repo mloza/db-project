@@ -27,8 +27,8 @@
 								<td> <?php echo $arbiter->dataUrodzenia ?></td>
 								<td> <?php echo $arbiter->narodowosc ?></td>
 								<td class="table-actions">
-								<a href="/arbiter/edit/<?php echo $arbiter->idSedziego ?>.html" title="Edycja" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
-								<a href="/arbiter/delete/<?php echo $arbiter->idSedziego ?>.html" title="usuń" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+								<a href="/Arbiter/edit/<?php echo $arbiter->idSedziego ?>.html" title="Edycja" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
+								<a href="/Arbiter/delete/<?php echo $arbiter->idSedziego ?>.html" title="usuń" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
 							</td>
 							</tr>	
 					<?php }?>					
