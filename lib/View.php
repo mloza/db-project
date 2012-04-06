@@ -13,10 +13,10 @@ class lib_View {
 	public function __construct($viewname)
 	{
 		$viewname = explode('/', $viewname);
-		foreach($viewname as $i=>$v)
-		{
-			$viewname[$i] = ucfirst($v); // asd
-		}
+		//foreach($viewname as $i=>$v)
+		//{
+			$viewname[0] = ucfirst($v); // asd
+		//}
 		$viewname = join('/', $viewname);
 		
 		if(file_exists(__DIR__.'/../views/'.$viewname.'.php')) 
