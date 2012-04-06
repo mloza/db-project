@@ -1,5 +1,4 @@
 <?php
-
 class Model_Trener extends lib_model{
 	
 	public function getTreners($limit = 30, $offset = 0){
@@ -8,9 +7,9 @@ class Model_Trener extends lib_model{
 		return $t;
 	}
 	
-	public function getTrener($id){
+	public function getTrener($id) {
 		$t = $this->db->prepare('SELECT * FROM trener WHERE idTrenera = :id LIMIT 1');
-		$t->bindParama(':id', $id, PDO::PARAM_INT);
+		$t->bindParam(':id', $id, PDO::PARAM_INT);
 		$t->execute();
 		return $t->fetchObject();
 	}

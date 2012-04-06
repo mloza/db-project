@@ -14,7 +14,7 @@
 								Imię
 							</th>
 							<th scope="col">Nazwisko</th>
-							<th scope="col">Kraj</th>
+							
 							<th scope="col">
 								Data Urodzenia
 							</th>
@@ -30,7 +30,20 @@
 					</thead>
 					
 					<tbody>
-					
+					<?php while($trener = $treners->fetchObject()) { ?>
+							<tr>
+								<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+								<td> <?php echo $trener->imie ?></td>
+								<td> <?php echo $trener->nazwisko ?></td>
+								<td> <?php echo $trener->dataUrodzenia ?></td>
+								<td> <?php echo $trener->dataSmierci ?></td>
+								<td> <?php echo $trener->odKiedy ?></td>
+								<td class="table-actions">
+								<a href="/trener/edit/<?php echo $trener->idTrenera ?>.html" title="Edycja" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
+								<a href="/trener/delete/<?php echo $trener->idTrenera ?>.html" title="usuń" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+							</td>
+							</tr>	
+					<?php }?>					
 					</tbody>
 				
 				</table></div>
