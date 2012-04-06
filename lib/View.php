@@ -12,14 +12,15 @@ class lib_View {
 	
 	public function __construct($viewname)
 	{
+		$viewname = explode('/', $viewname);
+		//foreach($viewname as $i=>$v)
+		//{
+			$viewname[0] = ucfirst($viewname[0]); // asd
+		//}
+		$viewname = join('/', $viewname);
+		
 		if(file_exists(__DIR__.'/../views/'.$viewname.'.php')) 
 		{
-			$viewname = explode('/', $viewname);
-			foreach($viewname as $i=>$v)
-			{
-				$viewname[$i] = ucfirst($v);
-			}
-			$viewname = join('/', $viewname);
 			$this->template = __DIR__.'/../views/'.$viewname.'.php';
 		}
 		else throw new Exception("View file does not exists, trying to load: ".$viewname);
