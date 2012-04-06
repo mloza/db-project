@@ -3,17 +3,15 @@
 		<section class="grid_12">
 			<div class="block-border"><div class="block-content">
 				<div class="h1">
-					<h1>Skocznie</h1>
+					<h1>Nagrody</h1>
 				</div>			 
 				 <div class="no-margin"><table class="table" cellspacing="0" width="100%">
 				
 					<thead>
 						<tr>
 							<th class="black-cell"><span class="loading"></span></th>
-							<th scope="col">Punkt K</th>
-							<th scope="col">Miasto</th>
 							<th scope="col">Nazwa</th>
-							<th scope="col">Rekord</th>
+							<th scope="col">Wartość</th>
 							<th scope="col" class="table-actions">Akcja</th>
 						</tr>
 					</thead>
@@ -22,7 +20,7 @@
 					<?php while($skiJump = $skiJumps->fetchObject()) { ?>
 							<tr>
 								<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
-								<td> <?php echo $skiJump->punktKonstrukcyjny ?></td>
+								<td> <?php echo $skiJump->nazwaNagrody ?></td>
 								<td> <?php echo $skiJump->miasto ?></td>
 								<td> <?php echo $skiJump->nazwa ?></td>
 								<td> <?php echo $skiJump->rekordSkoczni ?></td>
