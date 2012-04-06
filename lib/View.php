@@ -19,7 +19,7 @@ class lib_View {
 	public function __get($name)
 	{
 		if(!empty($this->vars[$name])) return $this->vars[$name];
-		else throw new Exception("Variable does not exists"); 
+		else throw new Exception("Variable ".$name." does not exists"); 
 	}
 	
 	public function __set($name, $value)

@@ -10,7 +10,7 @@ class lib_controller {
 		$this->template = lib_View::factory($this->template)->set('view', lib_View::factory($addr['controller'].'/'.$addr['action']));
 		
 		try {
-			$this->model = lib_Model::factory('skoczek');
+			$this->model = lib_Model::factory($addr['controller']);
 		} catch(Exception $e) {
 		
 		}
