@@ -13,7 +13,7 @@
 			<label for="complex-fr-title">Płeć</label>
 			<select name="plec">
 				<option value="">---- Wybierz ----</option>
-				<option value="mężczynza" <?php if($jumper->plec == 'mężczyzna'): ?>selected="selected"<?php endif; ?>>Mężczyzna</option>
+				<option value="mężczyzna" <?php if($jumper->plec == 'mezczyzna'): ?>selected="selected"<?php endif; ?>>Mężczyzna</option>
 				<option value="kobieta" <?php if($jumper->plec == 'kobieta'): ?>selected="selected"<?php endif; ?>>Kobieta</option>
 			</select>
 		</div>
