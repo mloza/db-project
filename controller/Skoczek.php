@@ -36,7 +36,7 @@ class Controller_Skoczek extends Lib_Controller {
 		$this->breadcrumbs['skoczek/edit/'.$id] = 'Edycja skoczka: '.$jumper->imie.' '.$jumper->nazwisko;
 		if(!empty($_POST) AND is_array($_POST)) {
 			//sprawdzamy czy podano wszstkie pola które trzeba
-			 if(!empty($_POST['imie']) AND !empty($_POST['nazwisko']))
+			 if(!empty($_POST['imie']) AND !empty($_POST['nazwisko']) AND !empty($_POST['kraj']) AND !empty($_POST['dataUr']))
 			 {		
 				if(!($e = $this->model->update($id, $_POST)))
 					$this->redirect('/skoczek/list/updated.html');

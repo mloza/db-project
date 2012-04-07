@@ -10,6 +10,14 @@
 			<input type="text" name="nazwisko" id="" value="<?php echo $jumper->nazwisko ?>" class="full-width">
 		</div>
 		<div class="grid_3">
+			<label for="complex-fr-title">Kraj</label>
+			<input type="text" name="kraj" id="" value="<?php echo $jumper->krajPochodzenia ?>" class="full-width">
+		</div>
+		<div class="grid_3">
+			<label for="complex-fr-title">Data Urodzenia</label>
+			<input type="text" name="dataUr" class="datepicker hasDatepick" id="" value="<?php echo $jumper->dataUrodzenia ?>" class="full-width">
+		</div>
+		<div class="grid_3">
 			<label for="complex-fr-title">Płeć</label>
 			<select name="plec">
 				<option value="">---- Wybierz ----</option>
