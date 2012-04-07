@@ -5,7 +5,7 @@ class Lib_Controller {
 	protected $auto_render = true;
 	protected $model;
 	protected $current = 'home', $subcurrent = '';
-	protected $breadcrumbs = array('/' => 'Home');
+	protected $breadcrumbs = array('dashboard' => 'Home');
 	
 	public function __construct($addr)
 	{
