@@ -17,7 +17,7 @@ class Model_Trener extends lib_model{
 	public function update($id, $post)
 	{
 		try {
-			$q = $this->db->prepare("UPDATE trener SET `imie` = :imie, `nazwisko` = :nazwisko, `odKiedy` =:odKiedy, `dataUrodzenia`=: dataUr, `dataSmierci`=: dataSm WHERE idTrenera = :id LIMIT 1");
+			$q = $this->db->prepare("UPDATE trener SET `imie` = :imie, `nazwisko` = :nazwisko, `odKiedy` =:odKiedy, `dataUrodzenia`=:dataUr, `dataSmierci`=:dataSm WHERE idTrenera = :id LIMIT 1");
 			$q->bindParam(':id', $id, PDO::PARAM_INT);
 			$q->bindParam(':imie', $post['imie'], PDO::PARAM_STR);
 			$q->bindParam(':nazwisko', $post['nazwisko'], PDO::PARAM_STR);
