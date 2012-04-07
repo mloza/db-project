@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Projekt z baz dancyh v1.0</title>
+	<title>Projekt z baz danych v1.0</title>
 	<meta charset="utf-8">
 	
 	<!-- Global stylesheets -->
@@ -289,10 +289,10 @@
 				</ul>
 			</li>
 
-			<li class="users"><a href="/sezon/list.html" title="Sezony">Sezony</a>
+			<li class="users <?php $current == 'sezon' and print 'current'; ?>"><a href="/sezon/list.html" title="Sezony">Sezony</a>
 				<ul>
-					<li><a href="/sezon/list.html" title="Wybierz sezon i uzyskaj informacje">Informacje o sezonie</a></li>
-					<li><a href="/sezon/add.html" title="Dodaj nowy sezon">Dodaj sezon</a></li>
+					<li <?php $subcurrent == 'sezon-list' and print 'class="current"'; ?>><a href="/sezon/list.html" title="Wybierz sezon i uzyskaj informacje">Informacje o sezonie</a></li>
+					<li <?php $subcurrent == 'sezon-add' and print 'class="current"'; ?>><a href="/sezon/add.html" title="Dodaj nowy sezon">Dodaj sezon</a></li>
 				</ul>
 			</li>
 		</ul>
