@@ -2,20 +2,44 @@
 	<fieldset class="grey-bg">
 		<legend>Dane osobowe</legend>
 		<div class="grid_3">
-			<label for="name">Imię</label>
+			<label for="name" class="required">Imię</label>
 			<input type="text" name="imie" id="imie" value="<?php echo $jumper->imie ?>" class="full-width">
 		</div>
 		<div class="grid_3">
-			<label for="complex-fr-title">Nazwisko</label>
+			<label for="complex-fr-title" class="required">Nazwisko</label>
 			<input type="text" name="nazwisko" id="" value="<?php echo $jumper->nazwisko ?>" class="full-width">
 		</div>
 		<div class="grid_3">
-			<label for="complex-fr-title">Płeć</label>
+			<label for="complex-fr-title" class="required">Płeć</label>
 			<select name="plec">
 				<option value="">---- Wybierz ----</option>
-				<option value="mężczynza" <?php if($jumper->plec == 'mężczyzna'): ?>selected="selected"<?php endif; ?>>Mężczyzna</option>
+				<option value="mężczyzna" <?php if($jumper->plec == 'mezczyzna'): ?>selected="selected"<?php endif; ?>>Mężczyzna</option>
 				<option value="kobieta" <?php if($jumper->plec == 'kobieta'): ?>selected="selected"<?php endif; ?>>Kobieta</option>
 			</select>
+		</div>	
+		<div class="clear"></div>
+	</fieldset>
+	<fieldset class="grey-bg">
+		<legend>Dodatkowe</legend>
+		<div class="grid_3">
+			<label for="complex-fr-title" class="required">Kraj</label>
+			<input type="text" name="kraj" id="" value="<?php echo $jumper->krajPochodzenia ?>" class="full-width">
+		</div>
+		<div class="grid_3">
+			<label for="complex-fr-title" class="required">Data Urodzenia</label>
+			<input type="text" name="dataUr" class="datepicker hasDatepick" id="" value="<?php echo $jumper->dataUrodzenia ?>" class="full-width">
+		</div>
+		<div class="grid_3">
+			<label for="complex-fr-title">Data Śmierci</label>
+			<input type="text" name="dataSm" class="datepicker hasDatepick" id="" value="<?php echo $jumper->dataSmierci ?>" class="full-width">
+		</div>
+		<div class="clear"></div>		
+	</fieldset>
+	<fieldset class="grey-bg">
+		<legend>Informacje</legend>
+		<div class="grid_12">
+			<label for="complex-fr-title">Informacje</label>
+			<textarea name="informacje" id=""  class="full-width" rows="20"><?php echo $jumper->informacje ?></textarea>
 		</div>
 		<div class="clear"></div>
 	</fieldset>
@@ -25,3 +49,10 @@
 	</div>
 	<div class="clear"></div>
 </form>
+
+
+
+
+
+
+		

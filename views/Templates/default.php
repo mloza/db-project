@@ -232,7 +232,8 @@
 					weekendClass: 'week-end', 
 					commandClass: 'calendar', 
 					commandLinkClass: 'button',
-					disabledClass: 'unavailable'
+					disabledClass: 'unavailable',
+					dateFormat: 'dd-mm-yyyy'
 				}
 			});
 		});
@@ -289,10 +290,11 @@
 				</ul>
 			</li>
 
-			<li class="users <?php $current == 'sezon' and print 'current'; ?>"><a href="/sezon/list.html" title="Sezony">Sezony</a>
+			<li class="trainer <?php $current == 'trener' and print 'current'; ?>"><a href="/trener/list.html" title="Trenerzy">Trenerzy</a>
 				<ul>
-					<li <?php $subcurrent == 'sezon-list' and print 'class="current"'; ?>><a href="/sezon/list.html" title="Wybierz sezon i uzyskaj informacje">Informacje o sezonie</a></li>
-					<li <?php $subcurrent == 'sezon-add' and print 'class="current"'; ?>><a href="/sezon/add.html" title="Dodaj nowy sezon">Dodaj sezon</a></li>
+					<li <?php $subcurrent == 'trener-list' and print 'class="current"'; ?>><a href="/trener/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'trener-add' and print 'class="current"'; ?>><a href="/trener/add.html" title="Dodaj nowego">Dodaj trenera</a></li>
+
 				</ul>
 			</li>
 		</ul>
