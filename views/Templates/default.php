@@ -315,7 +315,6 @@
 		<ul id="breadcrumb">
 			<?php foreach($breadcrumbs as $a => $name): ?>
 				<li><a href="/<?php echo $a; ?>.html" title="Home"><?php echo $name ?></a></li>
-				<li class="close-bt"></li>
 			<?php endforeach; ?>
 		</ul>
 	
@@ -327,7 +326,7 @@
 	<div class="clear"></div><br><br>
 	<div class="container_12">
 	<?php if(!empty($msg)): ?>
-		<ul class="message <?php echo $msg['type']; ?> grid_12"><li><?php echo $msg['msg']; ?></li></ul>
+		<ul class="message <?php echo $msg['type']; ?> grid_12"><li><?php echo $msg['msg']; ?></li><li class="close-bt"></li></ul>
 	<?php endif; ?>
 	</div>
 	<div class="clear"></div>
