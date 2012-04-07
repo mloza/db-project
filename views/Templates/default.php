@@ -232,7 +232,8 @@
 					weekendClass: 'week-end', 
 					commandClass: 'calendar', 
 					commandLinkClass: 'button',
-					disabledClass: 'unavailable'
+					disabledClass: 'unavailable',
+					dateFormat: 'dd-mm-yyyy'
 				}
 			});
 		});
