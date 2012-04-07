@@ -288,6 +288,13 @@
 					<li><a href="/skoczek/add.html" title="Dodaj nowego">Dodaj skoczka</a></li>
 				</ul>
 			</li>
+
+			<li class="users"><a href="/sezon/list.html" title="Sezony">Sezony</a>
+				<ul>
+					<li><a href="/sezon/list.html" title="Wybierz sezon i uzyskaj informacje">Informacje o sezonie</a></li>
+					<li><a href="/sezon/add.html" title="Dodaj nowy sezon">Dodaj sezon</a></li>
+				</ul>
+			</li>
 		</ul>
 	</nav>
 	<!-- End main nav -->
