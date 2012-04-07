@@ -289,6 +289,12 @@
 					<li <?php $subcurrent == 'skoczek-add' and print 'class="current"'; ?>><a href="/skoczek/add.html" title="Dodaj nowego">Dodaj skoczka</a></li>
 				</ul>
 			</li>
+			<li class="trainer <?php $current == 'trener' and print 'current'; ?>"><a href="/trener/list.html" title="Trenerzy">Trenerzy</a>
+				<ul>
+					<li <?php $subcurrent == 'trener-list' and print 'class="current"'; ?>><a href="/trener/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'trener-add' and print 'class="current"'; ?>><a href="/trener/add.html" title="Dodaj nowego">Dodaj trenera</a></li>
+				</ul>
+			</li>
 		</ul>
 	</nav>
 	<!-- End main nav -->

@@ -17,12 +17,13 @@ class Model_Skoczek extends Lib_Model {
 	public function update($id, $post)
 	{
 		try {
-			$q = $this->db->prepare("UPDATE skoczek SET `imie` = :imie, `nazwisko` = :nazwisko, `krajPochodzenia` =:kraj, `dataUrodzenia`=: dataUr, plec = :plec WHERE idSkoczka = :id LIMIT 1");
+			$q = $this->db->prepare("UPDATE skoczek SET `imie` = :imie, `nazwisko` = :nazwisko, `krajPochodzenia` =:kraj, `dataUrodzenia`=: dataUr, `dataSmierci`=: dataSm, plec = :plec WHERE idSkoczka = :id LIMIT 1");
 			$q->bindParam(':id', $id, PDO::PARAM_INT);
 			$q->bindParam(':imie', $post['imie'], PDO::PARAM_STR);
 			$q->bindParam(':nazwisko', $post['nazwisko'], PDO::PARAM_STR);
 			$q->bindParam(':kraj', $post['kraj'], PDO::PARAM_STR);
 			$q->bindParam(':dataUr', $post['dataUr'], PDO::PARAM_STR);
+			$q->bindParam(':dataSm', $post['dataSm'], PDO::PARAM_STR);
 			$q->bindParam(':plec', $post['plec'], PDO::PARAM_STR);
 			$q->execute();
 			return 0;
