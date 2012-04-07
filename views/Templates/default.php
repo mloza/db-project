@@ -280,12 +280,12 @@
 	<nav id="main-nav">
 		
 		<ul class="container_12">
-			<li class="home current"><a href="/" title="Home">Home</a></li>
+			<li class="home <?php $current == 'home' and print 'current'; ?>"><a href="/" title="Home">Home</a></li>
 
-			<li class="users"><a href="/skoczek/list.html" title="Skoczkowie">Skoczkowie</a>
+			<li class="users <?php $current == 'skoczek' and print 'current'; ?>"><a href="/skoczek/list.html" title="Skoczkowie">Skoczkowie</a>
 				<ul>
-					<li><a href="/skoczek/list.html" title="Przeglądaj">Lista</a></li>
-					<li><a href="/skoczek/add.html" title="Dodaj nowego">Dodaj skoczka</a></li>
+					<li <?php $subcurrent == 'skoczek-list' and print 'class="current"'; ?>><a href="/skoczek/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'skoczek-add' and print 'class="current"'; ?>><a href="/skoczek/add.html" title="Dodaj nowego">Dodaj skoczka</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -313,8 +313,10 @@
 		</ul>
 		
 		<ul id="breadcrumb">
-			<li><a href="#" title="Home">Home</a></li>
-			<li><a href="#" title="Dashboard">Dashboard</a></li>
+			<?php foreach($breadcrumbs as $a => $name): ?>
+				<li><a href="/<?php echo $a; ?>.html" title="Home"><?php echo $name ?></a></li>
+				<li class="close-bt"></li>
+			<?php endforeach; ?>
 		</ul>
 	
 	</div></div>
@@ -322,7 +324,13 @@
 	
 	<div id="header-shadow"></div>
 	<!-- End header -->
-	
+	<div class="clear"></div><br><br>
+	<div class="container_12">
+	<?php if(!empty($msg)): ?>
+		<ul class="message <?php echo $msg['type']; ?> grid_12"><li><?php echo $msg['msg']; ?></li></ul>
+	<?php endif; ?>
+	</div>
+	<div class="clear"></div>
 	<?php echo $view ?>
 	
 	<!-- End content -->
