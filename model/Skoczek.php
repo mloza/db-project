@@ -25,7 +25,7 @@ class Model_Skoczek extends Lib_Model {
 			$q->bindParam(':dataUr', $post['dataUr'], PDO::PARAM_STR);
 			$q->bindParam(':dataSm', $post['dataSm'], PDO::PARAM_STR);
 			$q->bindParam(':plec', $post['plec'], PDO::PARAM_STR);
-			$q->execute();
+			if(!$q->execute()) throw new Exception("Database Error: ".print_r($db->errorInfo(), true));
 			return 0;
 		} catch(Exception $e) {
 			return $e->getMessgae();
