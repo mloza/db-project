@@ -1,4 +1,4 @@
- <?php
+<?php
  
  class Lib_Database {
 	private static $instance = null;
