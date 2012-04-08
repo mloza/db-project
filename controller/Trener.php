@@ -38,5 +38,11 @@ class Controller_Trener extends lib_controller{
 			} else $this->template->set('msg', array('type' => "error", 'msg' => "Nie uzupełniłeś wymaganych pól"));
 		}
 	}
+	
+	public function action_details($id = NULL)
+	{
+		$trener = $this->model->getTrener($id);
+		$this->template->view->set('trener', $trener);
+	}
 }
 

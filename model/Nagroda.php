@@ -25,4 +25,9 @@ class Model_Nagroda extends lib_model{
 			return $e->getMessgae();
 		}
 	}
+	public function action_details($id = NULL)
+	{
+		$prize = $this->model->getPrize($id);
+		$this->template->view->set('prize', $prize);
+	}
 }

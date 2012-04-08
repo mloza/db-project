@@ -11,7 +11,17 @@ class Model_Trener extends lib_model{
 		$t = $this->db->prepare('SELECT * FROM trener WHERE idTrenera = :id LIMIT 1');
 		$t->bindParam(':id', $id, PDO::PARAM_INT);
 		$t->execute();
-		return $t->fetchObject();
+		return $t->fetchObject("Model_Trener");
+	}
+	
+	public function getSkoczek()
+	{
+		$q = $this->db->prepare("SELECT * FROM skoczek_trener natural JOIN skoczek WHERE idTrenera = :id");
+		if(!($result = $q->execute(array(':id' => $this->idTrenera)))) {
+			print_r($this->db->errorInfo());
+		} else {
+			return $q;
+		}
 	}
 	
 	public function update($id, $post)
