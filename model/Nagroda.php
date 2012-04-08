@@ -10,8 +10,20 @@ class Model_Nagroda extends lib_model{
 		$p = $this->db->prepare('SELECT * FROM nagroda WHERE idNagrody =:id LIMIT 1');
 		$p->bindParam(':id',$id,PDO::PARAM_INT);
 		$p->execute();
-		return $p->fetchObject();
+		return $p->fetchObject("Model_Nagroda");
 	}
+	
+	public function getSkoczek()
+	{
+		$q = $this->db->prepare("SELECT * FROM nagroda_skoczek natural JOIN skoczek WHERE idNagrody = :id");
+		if(!($result = $q->execute(array(':id' => $this->idNagrody)))) {
+			print_r($this->db->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	
+	
 	public function update($id, $post)
 	{
 		try {
@@ -25,9 +37,5 @@ class Model_Nagroda extends lib_model{
 			return $e->getMessgae();
 		}
 	}
-	public function action_details($id = NULL)
-	{
-		$prize = $this->model->getPrize($id);
-		$this->template->view->set('prize', $prize);
-	}
+	
 }

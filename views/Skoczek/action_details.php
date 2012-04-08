@@ -100,6 +100,41 @@
 				<div class="clear"></div>
 			</div>
 		</div>
+				<div class="block-border">
+			<div class="block-content">
+				<div class="h1">
+					<h1>Zdobyte nagrody</h1>
+				</div>
+				<div>
+					<table class="table" cellspacing="0" width="100%">
+
+						<thead>
+							<tr>
+								<th class="black-cell"></th>
+								<th scope="col">Nazwa</th>
+								<th scope="col">Data</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<?php $p = $jumper->getNagroda(); while($n = $p->fetchObject()) { ?>
+							<tr
+								onclick="document.location.href='/nagroda/details/<?php echo $n->idNagrody ?>.html';"
+								style="cursor: pointer;">
+								<th scope="row" class="table-check-cell"><input type="checkbox"
+									name="selected[]" id="table-selected-1" value="1"></th>
+								<td><?php echo $n->nazwaNagrody ?></td>
+								<td><?php echo $n->data ?></td>
+								
+							</tr>
+							<?php }?>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
 		<div class="block-border">
 			<div class="block-content">
 				<div class="h1">
