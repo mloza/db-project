@@ -9,9 +9,22 @@ class Model_Skocznia extends lib_model{
 		$s = $this->db->prepare('SELECT * FROM skocznia WHERE idSkoczni = :id LIMIT 1');
 		$s->bindParam(':id',$id,PDO::PARAM_INT);
 		$s->execute();
-		return $s->fetchObject();
+		return $s->fetchObject("Model_Skocznia");
 	}
-public function update($id, $post)
+	
+	
+	public function getZawody()
+	{
+		
+		$q = $this->db->prepare("SELECT distinct nazwa, sezon FROM arbiter_skocznia_sezon WHERE idSkoczni = :id order by sezon");
+		if(!($result = $q->execute(array(':id' => $this->idSkoczni)))) {
+			print_r($this->db->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	
+	public function update($id, $post)
 	{
 		try {
 			$q = $this->db->prepare("UPDATE skocznia SET `nazwa` = :nazwa, `miasto` = :miasto, `punktKonstrukcyjny` =:punktK, `rekordSkoczni`=:rekord WHERE idSkoczni = :id LIMIT 1");
