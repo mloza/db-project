@@ -20,6 +20,11 @@
 		$this->connection->query('SET names utf8');
 	}
 	
+	public function errorInfo()
+	{
+		return $this->connection->errorInfo();
+	}
+	
 	public function prepare($query)
 	{
 		return $this->connection->prepare($query);

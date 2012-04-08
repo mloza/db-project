@@ -13,7 +13,7 @@
 			<label for="complex-fr-title" class="required">Płeć</label>
 			<select name="plec">
 				<option value="">---- Wybierz ----</option>
-				<option value="mężczyzna" <?php if($jumper->plec == 'mezczyzna'): ?>selected="selected"<?php endif; ?>>Mężczyzna</option>
+				<option value="mężczyzna" <?php if($jumper->plec == 'mężczyzna'): ?>selected="selected"<?php endif; ?>>Mężczyzna</option>
 				<option value="kobieta" <?php if($jumper->plec == 'kobieta'): ?>selected="selected"<?php endif; ?>>Kobieta</option>
 			</select>
 		</div>	
@@ -27,11 +27,11 @@
 		</div>
 		<div class="grid_3">
 			<label for="complex-fr-title" class="required">Data Urodzenia</label>
-			<input type="text" name="dataUr" class="datepicker hasDatepick" id="" value="<?php echo $jumper->dataUrodzenia ?>" class="full-width">
+			<input type="text" name="dataUr" class="datepicker hasDatepick full-width" id="" value="<?php echo $jumper->dataUrodzenia ?>">
 		</div>
 		<div class="grid_3">
 			<label for="complex-fr-title">Data Śmierci</label>
-			<input type="text" name="dataSm" class="datepicker hasDatepick" id="" value="<?php echo $jumper->dataSmierci ?>" class="full-width">
+			<input type="text" name="dataSm" class="datepicker hasDatepick full-width" id="" value="<?php echo $jumper->dataSmierci ?>" >
 		</div>
 		<div class="clear"></div>		
 	</fieldset>

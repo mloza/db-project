@@ -11,4 +11,19 @@ class Model_Skocznia extends lib_model{
 		$s->execute();
 		return $s->fetchObject();
 	}
+public function update($id, $post)
+	{
+		try {
+			$q = $this->db->prepare("UPDATE skocznia SET `nazwa` = :nazwa, `miasto` = :miasto, `punktKonstrukcyjny` =:punktK, `rekordSkoczni`=:rekord WHERE idSkoczni = :id LIMIT 1");
+			$q->bindParam(':id', $id, PDO::PARAM_INT);
+			$q->bindParam(':nazwa', $post['nazwa'], PDO::PARAM_STR);
+			$q->bindParam(':miasto', $post['miasto'], PDO::PARAM_STR);
+			$q->bindParam(':punktK', $post['punktK'], PDO::PARAM_STR);
+			$q->bindParam(':rekord', $post['rekord'], PDO::PARAM_STR);
+			$q->execute();
+			return 0;
+		} catch(Exception $e) {
+			return $e->getMessgae();
+		}
+	}
 }

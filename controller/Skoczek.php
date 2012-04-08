@@ -46,4 +46,10 @@ class Controller_Skoczek extends Lib_Controller {
 			 } else $this->template->set('msg', array('type' => "error", 'msg' => "Nie uzupełniłeś wymaganych pól"));
 		}
 	}
+	
+	public function action_details($id = NULL)
+	{
+		$jumper = $this->model->getJumper($id);
+		$this->template->view->set('jumper', $jumper);
+	}
 }

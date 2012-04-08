@@ -105,7 +105,7 @@
 					
 					<tbody>
 					<?php while($jumper = $jumpers->fetchObject()) { ?>
-						<tr>
+						<tr onclick="document.location.href='/skoczek/details/<?php echo $jumper->idSkoczka ?>.html';" style="cursor:pointer;">
 							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
 							<td><?php echo $jumper->imie ?></td>
 							<td><?php echo $jumper->nazwisko ?></td>

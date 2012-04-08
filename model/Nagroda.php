@@ -12,4 +12,17 @@ class Model_Nagroda extends lib_model{
 		$p->execute();
 		return $p->fetchObject();
 	}
+	public function update($id, $post)
+	{
+		try {
+			$q = $this->db->prepare("UPDATE nagroda SET `nazwaNagrody` = :nazwaNagrody, `wartosc` = :wartosc WHERE idNagrody = :id LIMIT 1");
+			$q->bindParam(':id', $id, PDO::PARAM_INT);
+			$q->bindParam(':nazwaNagrody', $post['nazwaNagrody'], PDO::PARAM_STR);
+			$q->bindParam(':wartosc', $post['wartosc'], PDO::PARAM_INT);
+			$q->execute();
+			return 0;
+		} catch(Exception $e) {
+			return $e->getMessgae();
+		}
+	}
 }

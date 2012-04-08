@@ -13,4 +13,17 @@ class Model_Druzyna extends Lib_Model {
 		$q->execute();
 		return $q->fetchObject();
 	}
+	
+	public function update($id, $post)
+	{
+		try {
+			$q = $this->db->prepare("UPDATE druzyna SET `nazwa` = :nazwa WHERE idDruzyny = :id LIMIT 1");
+			$q->bindParam(':id', $id, PDO::PARAM_INT);
+			$q->bindParam(':nazwa', $post['nazwa'], PDO::PARAM_STR);
+			$q->execute();
+			return 0;
+		} catch(Exception $e) {
+			return $e->getMessage();
+		}
+	}
 }
