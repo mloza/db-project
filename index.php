@@ -29,3 +29,8 @@ elseif (!empty($addr['param1']))
 else
 	$controller->$addr['action']();
 $controller->after();
+
+$q = $DB->query('SELECT * FROM nagroda NATURAL JOIN nagroda_skoczek ');
+echo '<pre>';
+print_r($q->fetchAll());
+echo '</pre>';
