@@ -58,6 +58,7 @@
 								<th scope="col">Imię</th>
 								<th scope="col">Nazwisko</th>
 								<th scope="col">Od kiedy</th>
+								<th scope="col">Do kiedy</th>
 								<th scope="col">Kraj</th>
 							</tr>
 						</thead>
@@ -72,6 +73,7 @@
 								<td><?php echo $n->imie ?></td>
 								<td><?php echo $n->nazwisko ?></td>
 								<td><?php echo $n->od ?></td>
+								<td><?php echo $n->do ?></td>
 								<td><?php echo $n->krajPochodzenia ?></td>
 								
 							</tr>
