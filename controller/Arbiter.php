@@ -37,4 +37,10 @@ class Controller_Arbiter extends lib_controller{
 			} else $this->template->set('msg', array('type' => "error", 'msg' => "Nie uzupełniłeś wymaganych pól"));
 		}
 	}
+	
+	public function action_details($id = NULL)
+	{
+		$arbiter = $this->model->getArbiter($id);
+		$this->template->view->set('arbiter', $arbiter);
+	}
 }
