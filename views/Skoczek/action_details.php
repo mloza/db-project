@@ -100,7 +100,8 @@
 				<div class="clear"></div>
 			</div>
 		</div>
-				<div class="block-border">
+		<br> <br>
+		<div class="block-border">
 			<div class="block-content">
 				<div class="h1">
 					<h1>Zdobyte nagrody</h1>
@@ -125,6 +126,40 @@
 									name="selected[]" id="table-selected-1" value="1"></th>
 								<td><?php echo $n->nazwaNagrody ?></td>
 								<td><?php echo $n->data ?></td>
+
+							</tr>
+							<?php }?>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<br> <br>
+		<div class="block-border">
+			<div class="block-content">
+				<div class="h1">
+					<h1>Drużyny</h1>
+				</div>
+				<div>
+					<table class="table" cellspacing="0" width="50%">
+
+						<thead>
+							<tr>
+								<th class="black-cell"></th>
+								<th scope="col">Nazwa</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<?php $p = $jumper->getDruzyna(); while($n = $p->fetchObject()) { ?>
+							<tr
+								onclick="document.location.href='/druzyna/details/<?php echo $n->idDruzyny ?>.html';"
+								style="cursor: pointer;">
+								<th scope="row" class="table-check-cell"><input type="checkbox"
+									name="selected[]" id="table-selected-1" value="1"></th>
+								<td><?php echo $n->nazwa ?></td>
 								
 							</tr>
 							<?php }?>
@@ -135,6 +170,7 @@
 				<div class="clear"></div>
 			</div>
 		</div>
+		<br><br>
 		<div class="block-border">
 			<div class="block-content">
 				<div class="h1">

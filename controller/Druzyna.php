@@ -39,4 +39,10 @@ class Controller_Druzyna extends Lib_Controller{
 			} else $this->template->set('msg', array('type' => "error", 'msg' => "Nie uzupełniłeś wymaganych pól"));
 		}
 	}
+	
+	public function action_details($id = NULL)
+	{
+		$team = $this->model->getTeam($id);
+		$this->template->view->set('team', $team);
+	}
 }

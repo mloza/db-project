@@ -17,7 +17,7 @@
 					
 					<tbody>
 					<?php while($team = $teams->fetchObject()) { ?>
-							<tr>
+							<tr onclick="document.location.href='/druzyna/details/<?php echo $team->idDruzyny ?>.html';" style="cursor:pointer;">
 								<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
 								<td> <?php echo $team->nazwa ?></td>
 								<td class="table-actions">

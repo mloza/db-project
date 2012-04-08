@@ -66,6 +66,16 @@ class Model_Skoczek extends Lib_Model {
 			return $q;
 		}
 	}
+	
+	public function getDruzyna()
+	{
+		$q = $this->db->prepare("SELECT * FROM skoczek_druzyna natural JOIN druzyna WHERE idSkoczka = :id");
+		if(!($result = $q->execute(array(':id' => $this->idSkoczka)))) {
+			print_r($this->db->errorInfo());
+		} else {
+			return $q;
+		}
+	}
 
 	public function update($id, $post)
 	{

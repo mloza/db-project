@@ -1,24 +1,16 @@
-<?php if ($prize) : ?>
+<?php if ($team) : ?>
 <article class="container_12">
 	<section class="grid_12">
 		<div class="block-border">
 			<div class="block-content">
 				<div class="h1">
-					<h1>Szczegóły nagrody</h1>
+					<h1>Szczegóły drużyny</h1>
 				</div>
 				<form class="form">
 					<fieldset class="grey-bg grid_4">
-						<legend>Nazwa nagrody</legend>
+						<legend>Nazwa drużyny</legend>
 						<div class="">
-							<strong><?php echo $prize->nazwaNagrody?> </strong>
-						</div>
-
-						<div class="clear"></div>
-					</fieldset>
-					<fieldset class="grey-bg grid_3">
-						<legend>Wartość</legend>
-						<div class="">
-							<strong><?php echo $prize->wartosc ?> zł </strong>
+							<strong><?php echo $team->nazwa?> </strong>
 						</div>
 						<div class="clear"></div>
 					</fieldset>
@@ -30,7 +22,7 @@
 		<div class="block-border">
 			<div class="block-content">
 				<div class="h1">
-					<h1>Laureaci</h1>
+					<h1>Skład drużyny</h1>
 				</div>
 				<div>
 					<table class="table" cellspacing="0" width="100%">
@@ -40,12 +32,12 @@
 								<th class="black-cell"></th>
 								<th scope="col">Imię</th>
 								<th scope="col">Nazwisko</th>
-								<th scope="col">Data</th>
+								<th scope="col">Kraj</th>
 							</tr>
 						</thead>
 
 						<tbody>
-							<?php $p = $prize->getSkoczek(); while($n = $p->fetchObject()) { ?>
+							<?php $p = $team->getSkoczek(); while($n = $p->fetchObject()) { ?>
 							<tr
 								onclick="document.location.href='/skoczek/details/<?php echo $n->idSkoczka ?>.html';"
 								style="cursor: pointer;">
@@ -53,7 +45,7 @@
 									name="selected[]" id="table-selected-1" value="1"></th>
 								<td><?php echo $n->imie ?></td>
 								<td><?php echo $n->nazwisko ?></td>
-								<td><?php echo $n->data ?></td>
+								<td><?php echo $n->krajPochodzenia ?></td>
 								
 							</tr>
 							<?php }?>
