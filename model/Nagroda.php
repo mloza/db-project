@@ -23,6 +23,16 @@ class Model_Nagroda extends lib_model{
 		}
 	}
 	
+	public function getDruzyna()
+	{
+		$q = $this->db->prepare("SELECT * FROM nagroda_druzyna natural JOIN druzyna WHERE idNagrody = :id");
+		if(!($result = $q->execute(array(':id' => $this->idNagrody)))) {
+			print_r($this->db->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	
 	
 	public function update($id, $post)
 	{

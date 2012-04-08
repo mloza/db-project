@@ -27,6 +27,8 @@
 			</div>
 		</div>
 		<br> <br>
+		<?php $p = $prize->getSkoczek();
+							if($p->rowCount()): ?>
 		<div class="block-border">
 			<div class="block-content">
 				<div class="h1">
@@ -45,7 +47,7 @@
 						</thead>
 
 						<tbody>
-							<?php $p = $prize->getSkoczek(); while($n = $p->fetchObject()) { ?>
+							<?php while($n = $p->fetchObject()) { ?>
 							<tr
 								onclick="document.location.href='/skoczek/details/<?php echo $n->idSkoczka ?>.html';"
 								style="cursor: pointer;">
@@ -54,9 +56,9 @@
 								<td><?php echo $n->imie ?></td>
 								<td><?php echo $n->nazwisko ?></td>
 								<td><?php echo $n->data ?></td>
-								
+
 							</tr>
-							<?php }?>
+							<?php } ?>
 						</tbody>
 
 					</table>
@@ -64,6 +66,44 @@
 				<div class="clear"></div>
 			</div>
 		</div>
+		<?php endif; ?>
+		<?php $p = $prize->getDruzyna();
+							if($p->rowCount()): ?>
+		<div class="block-border">
+			<div class="block-content">
+				<div class="h1">
+					<h1>Laureaci</h1>
+				</div>
+				<div>
+					<table class="table" cellspacing="0" width="100%">
+
+						<thead>
+							<tr>
+								<th class="black-cell"></th>
+								<th scope="col">Nazwa</th>
+								<th scope="col">Data</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<?php while($n = $p->fetchObject()) { ?>
+							<tr
+								onclick="document.location.href='/druzyna/details/<?php echo $n->idDruzyny ?>.html';"
+								style="cursor: pointer;">
+								<th scope="row" class="table-check-cell"><input type="checkbox"
+									name="selected[]" id="table-selected-1" value="1"></th>
+								<td><?php echo $n->nazwa ?></td>
+								<td><?php echo $n->data ?></td>
+							</tr>
+							<?php } ?>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<?php endif; ?>
 	</section>
 </article>
 <?php else : ?>
