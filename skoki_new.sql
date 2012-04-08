@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.7deb5build0.10.10.1
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas wygenerowania: 06 Kwi 2012, 23:26
--- Wersja serwera: 5.1.61
--- Wersja PHP: 5.3.3-1ubuntu9.10
+-- Generation Time: Apr 08, 2012 at 10:05 PM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,13 +17,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Baza danych: `skoki_new`
+-- Database: `skoki_new`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `arbiter`
+-- Table structure for table `arbiter`
 --
 
 CREATE TABLE IF NOT EXISTS `arbiter` (
@@ -35,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `arbiter` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
--- Zrzut danych tabeli `arbiter`
+-- Dumping data for table `arbiter`
 --
 
 INSERT INTO `arbiter` (`idSedziego`, `imie`, `nazwisko`, `dataUrodzenia`, `narodowosc`) VALUES
@@ -63,27 +64,24 @@ INSERT INTO `arbiter` (`idSedziego`, `imie`, `nazwisko`, `dataUrodzenia`, `narod
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `arbiter_skocznia_sezon`
+-- Table structure for table `arbiter_skocznia_sezon`
 --
 
 CREATE TABLE IF NOT EXISTS `arbiter_skocznia_sezon` (
   `idSkoczni` int(8) NOT NULL,
   `idSedziego` int(8) NOT NULL,
   `sezon` char(9) NOT NULL,
-  PRIMARY KEY (`idSkoczni`,`idSedziego`,`sezon`),
+  `nazwa` varchar(60) NOT NULL,
+  PRIMARY KEY (`idSkoczni`,`idSedziego`,`sezon`,`nazwa`),
   KEY `fk_sezon_arbiter` (`sezon`),
-  KEY `fk_sedzia_arbiter` (`idSedziego`)
+  KEY `fk_sedzia_arbiter` (`idSedziego`),
+  KEY `nazwa` (`sezon`,`nazwa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Zrzut danych tabeli `arbiter_skocznia_sezon`
---
-
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `druzyna`
+-- Table structure for table `druzyna`
 --
 
 CREATE TABLE IF NOT EXISTS `druzyna` (
@@ -93,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `druzyna` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
--- Zrzut danych tabeli `druzyna`
+-- Dumping data for table `druzyna`
 --
 
 INSERT INTO `druzyna` (`idDruzyny`, `nazwa`) VALUES
@@ -121,23 +119,23 @@ INSERT INTO `druzyna` (`idDruzyny`, `nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `kombinezon`
+-- Table structure for table `kombinezon`
 --
 
 CREATE TABLE IF NOT EXISTS `kombinezon` (
   `idKombinezonu` int(8) NOT NULL AUTO_INCREMENT,
   `idSprzetu` int(8) NOT NULL,
-  ` powierzchnia` int(8) NOT NULL,
+  `powierzchnia` int(8) NOT NULL,
   `material` varchar(48) NOT NULL,
   PRIMARY KEY (`idKombinezonu`),
   KEY `fk_sprzet_kombinezon` (`idSprzetu`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
--- Zrzut danych tabeli `kombinezon`
+-- Dumping data for table `kombinezon`
 --
 
-INSERT INTO `kombinezon` (`idKombinezonu`, `idSprzetu`, ` powierzchnia`, `material`) VALUES
+INSERT INTO `kombinezon` (`idKombinezonu`, `idSprzetu`, `powierzchnia`, `material`) VALUES
 (1, 29, 7300, 'phenix'),
 (2, 30, 7300, 'phenix'),
 (3, 31, 8672, 'phenix'),
@@ -171,7 +169,7 @@ INSERT INTO `kombinezon` (`idKombinezonu`, `idSprzetu`, ` powierzchnia`, `materi
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `nagroda`
+-- Table structure for table `nagroda`
 --
 
 CREATE TABLE IF NOT EXISTS `nagroda` (
@@ -182,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `nagroda` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
 
 --
--- Zrzut danych tabeli `nagroda`
+-- Dumping data for table `nagroda`
 --
 
 INSERT INTO `nagroda` (`idNagrody`, `nazwaNagrody`, `wartosc`) VALUES
@@ -256,7 +254,7 @@ INSERT INTO `nagroda` (`idNagrody`, `nazwaNagrody`, `wartosc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `nagroda_druzyna`
+-- Table structure for table `nagroda_druzyna`
 --
 
 CREATE TABLE IF NOT EXISTS `nagroda_druzyna` (
@@ -268,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `nagroda_druzyna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `nagroda_druzyna`
+-- Dumping data for table `nagroda_druzyna`
 --
 
 INSERT INTO `nagroda_druzyna` (`idNagrody`, `idDruzyny`, `data`) VALUES
@@ -312,7 +310,7 @@ INSERT INTO `nagroda_druzyna` (`idNagrody`, `idDruzyny`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `nagroda_skoczek`
+-- Table structure for table `nagroda_skoczek`
 --
 
 CREATE TABLE IF NOT EXISTS `nagroda_skoczek` (
@@ -325,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `nagroda_skoczek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `nagroda_skoczek`
+-- Dumping data for table `nagroda_skoczek`
 --
 
 INSERT INTO `nagroda_skoczek` (`idSkoczka`, `idNagrody`, `data`) VALUES
@@ -534,7 +532,7 @@ INSERT INTO `nagroda_skoczek` (`idSkoczka`, `idNagrody`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `narty`
+-- Table structure for table `narty`
 --
 
 CREATE TABLE IF NOT EXISTS `narty` (
@@ -546,7 +544,7 @@ CREATE TABLE IF NOT EXISTS `narty` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
--- Zrzut danych tabeli `narty`
+-- Dumping data for table `narty`
 --
 
 INSERT INTO `narty` (`idNart`, `idSprzetu`, `dlugosc`) VALUES
@@ -582,7 +580,7 @@ INSERT INTO `narty` (`idNart`, `idSprzetu`, `dlugosc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `pozostale`
+-- Table structure for table `pozostale`
 --
 
 CREATE TABLE IF NOT EXISTS `pozostale` (
@@ -594,7 +592,7 @@ CREATE TABLE IF NOT EXISTS `pozostale` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=77 ;
 
 --
--- Zrzut danych tabeli `pozostale`
+-- Dumping data for table `pozostale`
 --
 
 INSERT INTO `pozostale` (`idPozostalych`, `idSprzetu`, `typ`) VALUES
@@ -649,7 +647,6 @@ INSERT INTO `pozostale` (`idPozostalych`, `idSprzetu`, `typ`) VALUES
 (49, 106, 'buty'),
 (50, 107, 'buty'),
 (51, 108, 'gogle'),
-(52, 108, 'gogle'),
 (53, 109, 'gogle'),
 (54, 110, 'gogle'),
 (55, 111, 'gogle'),
@@ -678,7 +675,7 @@ INSERT INTO `pozostale` (`idPozostalych`, `idSprzetu`, `typ`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `sezon`
+-- Table structure for table `sezon`
 --
 
 CREATE TABLE IF NOT EXISTS `sezon` (
@@ -689,7 +686,7 @@ CREATE TABLE IF NOT EXISTS `sezon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `sezon`
+-- Dumping data for table `sezon`
 --
 
 INSERT INTO `sezon` (`sezon`, `nazwaZawodow`) VALUES
@@ -778,7 +775,7 @@ INSERT INTO `sezon` (`sezon`, `nazwaZawodow`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `skoczek`
+-- Table structure for table `skoczek`
 --
 
 CREATE TABLE IF NOT EXISTS `skoczek` (
@@ -791,10 +788,10 @@ CREATE TABLE IF NOT EXISTS `skoczek` (
   `plec` enum('kobieta','mężczyzna') NOT NULL,
   `dataSmierci` date DEFAULT NULL,
   PRIMARY KEY (`idSkoczka`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
--- Zrzut danych tabeli `skoczek`
+-- Dumping data for table `skoczek`
 --
 
 INSERT INTO `skoczek` (`idSkoczka`, `imie`, `nazwisko`, `informacje`, `krajPochodzenia`, `dataUrodzenia`, `plec`, `dataSmierci`) VALUES
@@ -827,7 +824,7 @@ INSERT INTO `skoczek` (`idSkoczka`, `imie`, `nazwisko`, `informacje`, `krajPocho
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `skoczek_druzyna`
+-- Table structure for table `skoczek_druzyna`
 --
 
 CREATE TABLE IF NOT EXISTS `skoczek_druzyna` (
@@ -838,7 +835,7 @@ CREATE TABLE IF NOT EXISTS `skoczek_druzyna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `skoczek_druzyna`
+-- Dumping data for table `skoczek_druzyna`
 --
 
 INSERT INTO `skoczek_druzyna` (`idSkoczka`, `idDruzyny`) VALUES
@@ -913,7 +910,7 @@ INSERT INTO `skoczek_druzyna` (`idSkoczka`, `idDruzyny`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `skoczek_trener`
+-- Table structure for table `skoczek_trener`
 --
 
 CREATE TABLE IF NOT EXISTS `skoczek_trener` (
@@ -926,7 +923,7 @@ CREATE TABLE IF NOT EXISTS `skoczek_trener` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `skoczek_trener`
+-- Dumping data for table `skoczek_trener`
 --
 
 INSERT INTO `skoczek_trener` (`idTrenera`, `idSkoczka`, `od`, `do`) VALUES
@@ -967,7 +964,7 @@ INSERT INTO `skoczek_trener` (`idTrenera`, `idSkoczka`, `od`, `do`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `skocznia`
+-- Table structure for table `skocznia`
 --
 
 CREATE TABLE IF NOT EXISTS `skocznia` (
@@ -980,7 +977,7 @@ CREATE TABLE IF NOT EXISTS `skocznia` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
--- Zrzut danych tabeli `skocznia`
+-- Dumping data for table `skocznia`
 --
 
 INSERT INTO `skocznia` (`idSkoczni`, `punktKonstrukcyjny`, `miasto`, `nazwa`, `rekordSkoczni`) VALUES
@@ -1016,7 +1013,7 @@ INSERT INTO `skocznia` (`idSkoczni`, `punktKonstrukcyjny`, `miasto`, `nazwa`, `r
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `sprzet`
+-- Table structure for table `sprzet`
 --
 
 CREATE TABLE IF NOT EXISTS `sprzet` (
@@ -1030,7 +1027,7 @@ CREATE TABLE IF NOT EXISTS `sprzet` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=133 ;
 
 --
--- Zrzut danych tabeli `sprzet`
+-- Dumping data for table `sprzet`
 --
 
 INSERT INTO `sprzet` (`idSprzetu`, `idSkoczka`, `firma`, `model`, `waga`) VALUES
@@ -1170,7 +1167,7 @@ INSERT INTO `sprzet` (`idSprzetu`, `idSkoczka`, `firma`, `model`, `waga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `trener`
+-- Table structure for table `trener`
 --
 
 CREATE TABLE IF NOT EXISTS `trener` (
@@ -1184,7 +1181,7 @@ CREATE TABLE IF NOT EXISTS `trener` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
--- Zrzut danych tabeli `trener`
+-- Dumping data for table `trener`
 --
 
 INSERT INTO `trener` (`idTrenera`, `imie`, `nazwisko`, `odKiedy`, `dataUrodzenia`, `dataSmierci`) VALUES
@@ -1218,7 +1215,7 @@ INSERT INTO `trener` (`idTrenera`, `imie`, `nazwisko`, `odKiedy`, `dataUrodzenia
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `wynik`
+-- Table structure for table `wynik`
 --
 
 CREATE TABLE IF NOT EXISTS `wynik` (
@@ -1236,15 +1233,10 @@ CREATE TABLE IF NOT EXISTS `wynik` (
   KEY `fk_zawody_wynik` (`nazwaZawodow`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Zrzut danych tabeli `wynik`
---
-
-
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla  `zawody`
+-- Table structure for table `zawody`
 --
 
 CREATE TABLE IF NOT EXISTS `zawody` (
@@ -1254,7 +1246,7 @@ CREATE TABLE IF NOT EXISTS `zawody` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `zawody`
+-- Dumping data for table `zawody`
 --
 
 INSERT INTO `zawody` (`nazwa`, `typ`) VALUES
@@ -1283,80 +1275,84 @@ INSERT INTO `zawody` (`nazwa`, `typ`) VALUES
 ('Zimowe Igrzyska Olimpijskie', 'mistrzowskie');
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `arbiter_skocznia_sezon`
+-- Constraints for table `arbiter_skocznia_sezon`
 --
 ALTER TABLE `arbiter_skocznia_sezon`
-  ADD CONSTRAINT `fk_sezon_arbiter` FOREIGN KEY (`sezon`) REFERENCES `sezon` (`sezon`),
-  ADD CONSTRAINT `fk_skocznia_arbiter` FOREIGN KEY (`idSkoczni`) REFERENCES `skocznia` (`idSkoczni`),
-  ADD CONSTRAINT `fk_sedzia_arbiter` FOREIGN KEY (`idSedziego`) REFERENCES `arbiter` (`idSedziego`);
+  ADD CONSTRAINT `nazwa` FOREIGN KEY (`sezon`, `nazwa`) REFERENCES `sezon` (`sezon`, `nazwaZawodow`),
+  ADD CONSTRAINT `arbiter_skocznia_sezon_ibfk_1` FOREIGN KEY (`idSkoczni`) REFERENCES `skocznia` (`idSkoczni`),
+  ADD CONSTRAINT `arbiter_skocznia_sezon_ibfk_2` FOREIGN KEY (`idSedziego`) REFERENCES `arbiter` (`idSedziego`);
 
 --
--- Ograniczenia dla tabeli `kombinezon`
+-- Constraints for table `kombinezon`
 --
 ALTER TABLE `kombinezon`
   ADD CONSTRAINT `fk_sprzet_kombinezon` FOREIGN KEY (`idSprzetu`) REFERENCES `sprzet` (`idSprzetu`);
 
 --
--- Ograniczenia dla tabeli `nagroda_druzyna`
+-- Constraints for table `nagroda_druzyna`
 --
 ALTER TABLE `nagroda_druzyna`
-  ADD CONSTRAINT `fk_nagroda_druzyna` FOREIGN KEY (`idNagrody`) REFERENCES `nagroda` (`idNagrody`),
-  ADD CONSTRAINT `fk_druzyna_nagroda` FOREIGN KEY (`idDruzyny`) REFERENCES `druzyna` (`idDruzyny`);
+  ADD CONSTRAINT `fk_druzyna_nagroda` FOREIGN KEY (`idDruzyny`) REFERENCES `druzyna` (`idDruzyny`),
+  ADD CONSTRAINT `fk_nagroda_druzyna` FOREIGN KEY (`idNagrody`) REFERENCES `nagroda` (`idNagrody`);
 
 --
--- Ograniczenia dla tabeli `nagroda_skoczek`
+-- Constraints for table `nagroda_skoczek`
 --
 ALTER TABLE `nagroda_skoczek`
-  ADD CONSTRAINT `nagroda_skoczek_ibfk_2` FOREIGN KEY (`idNagrody`) REFERENCES `nagroda` (`idNagrody`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `nagroda_skoczek_ibfk_1` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `nagroda_skoczek_ibfk_1` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `nagroda_skoczek_ibfk_2` FOREIGN KEY (`idNagrody`) REFERENCES `nagroda` (`idNagrody`) ON UPDATE CASCADE;
 
 --
--- Ograniczenia dla tabeli `narty`
+-- Constraints for table `narty`
 --
 ALTER TABLE `narty`
   ADD CONSTRAINT `fk_sprzet_narty` FOREIGN KEY (`idSprzetu`) REFERENCES `sprzet` (`idSprzetu`);
 
 --
--- Ograniczenia dla tabeli `pozostale`
+-- Constraints for table `pozostale`
 --
 ALTER TABLE `pozostale`
   ADD CONSTRAINT `fk_sprzet_pozostale` FOREIGN KEY (`idSprzetu`) REFERENCES `sprzet` (`idSprzetu`);
 
 --
--- Ograniczenia dla tabeli `sezon`
+-- Constraints for table `sezon`
 --
 ALTER TABLE `sezon`
   ADD CONSTRAINT `fk_zawody_sezon` FOREIGN KEY (`nazwaZawodow`) REFERENCES `zawody` (`nazwa`);
 
 --
--- Ograniczenia dla tabeli `skoczek_druzyna`
+-- Constraints for table `skoczek_druzyna`
 --
 ALTER TABLE `skoczek_druzyna`
-  ADD CONSTRAINT `fk_skok` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`),
-  ADD CONSTRAINT `fk_druzyna` FOREIGN KEY (`idDruzyny`) REFERENCES `druzyna` (`idDruzyny`);
+  ADD CONSTRAINT `fk_druzyna` FOREIGN KEY (`idDruzyny`) REFERENCES `druzyna` (`idDruzyny`),
+  ADD CONSTRAINT `fk_skok` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`);
 
 --
--- Ograniczenia dla tabeli `skoczek_trener`
+-- Constraints for table `skoczek_trener`
 --
 ALTER TABLE `skoczek_trener`
   ADD CONSTRAINT `fk_skoczek` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`),
   ADD CONSTRAINT `fk_trener` FOREIGN KEY (`idTrenera`) REFERENCES `trener` (`idTrenera`);
 
 --
--- Ograniczenia dla tabeli `sprzet`
+-- Constraints for table `sprzet`
 --
 ALTER TABLE `sprzet`
   ADD CONSTRAINT `fk_skoczek_sprzet` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`);
 
 --
--- Ograniczenia dla tabeli `wynik`
+-- Constraints for table `wynik`
 --
 ALTER TABLE `wynik`
-  ADD CONSTRAINT `fk_skoczek_wynik` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`),
   ADD CONSTRAINT `fk_sezon_wynik` FOREIGN KEY (`sezon`) REFERENCES `sezon` (`sezon`),
+  ADD CONSTRAINT `fk_skoczek_wynik` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`),
   ADD CONSTRAINT `fk_skocznia_wynik` FOREIGN KEY (`idSkoczni`) REFERENCES `skocznia` (`idSkoczni`),
   ADD CONSTRAINT `fk_zawody_wynik` FOREIGN KEY (`nazwaZawodow`) REFERENCES `sezon` (`nazwaZawodow`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
