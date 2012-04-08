@@ -95,5 +95,5 @@
 	</section>
 </article>
 <?php else : ?>
-<?php echo lib_View::factory('skoczek/not_exists'); ?>
+<?php echo lib_View::factory('druzyna/not_exists'); ?>
 <?php endif; ?>

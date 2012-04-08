@@ -40,4 +40,10 @@ class Controller_Zawody extends Lib_Controller{
 			} else $this->template->set('msg', array('type' => "error", 'msg' => "Nie uzupełniłeś wymaganych pól"));
 		}
 	}
+	public function action_details()
+	{
+		$id = $_GET['nazwa'];
+		$contest = $this->model->getContest($id);
+		$this->template->view->set('contest', $contest);
+	}
 }

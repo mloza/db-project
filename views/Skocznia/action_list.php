@@ -20,7 +20,7 @@
 					
 					<tbody>
 					<?php while($skiJump = $skiJumps->fetchObject()) { ?>
-							<tr>
+							<tr onclick="document.location.href='/skocznia/details/<?php echo $skiJump->idSkoczni ?>.html';" style="cursor:pointer;">
 								<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
 								<td> <?php echo $skiJump->nazwa ?></td>
 								<td> <?php echo $skiJump->miasto ?></td>

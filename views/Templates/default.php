@@ -283,7 +283,7 @@
 		<ul class="container_12">
 			<li class="home <?php $current == 'home' and print 'current'; ?>"><a href="/" title="Home">Home</a></li>
 
-			<li class="users <?php $current == 'skoczek' and print 'current'; ?>"><a href="/skoczek/list.html" title="Skoczkowie">Skoczkowie</a>
+			<li class="jumper <?php $current == 'skoczek' and print 'current'; ?>"><a href="/skoczek/list.html" title="Skoczkowie">Skoczkowie</a>
 				<ul>
 					<li <?php $subcurrent == 'skoczek-list' and print 'class="current"'; ?>><a href="/skoczek/list.html" title="Przeglądaj">Lista</a></li>
 					<li <?php $subcurrent == 'skoczek-add' and print 'class="current"'; ?>><a href="/skoczek/add.html" title="Dodaj nowego">Dodaj skoczka</a></li>

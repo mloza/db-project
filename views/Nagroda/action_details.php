@@ -107,5 +107,5 @@
 	</section>
 </article>
 <?php else : ?>
-<?php echo lib_View::factory('skoczek/not_exists'); ?>
+<?php echo lib_View::factory('nagroda/not_exists'); ?>
 <?php endif; ?>
