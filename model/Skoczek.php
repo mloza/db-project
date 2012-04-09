@@ -76,6 +76,43 @@ class Model_Skoczek extends Lib_Model {
 			return $q;
 		}
 	}
+	
+	public function getWyniki_8()
+	{
+		$q = $this->db->prepare("SELECT * FROM wynik natural join skocznia where idSkoczka = :id and sezon= '2008'");
+		if(!($result = $q->execute(array(':id' => $this->idSkoczka)))) {
+			print_r($q->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	public function getWyniki_9()
+	{
+		$q = $this->db->prepare("SELECT * FROM wynik natural join skocznia where idSkoczka = :id and sezon= '2009'");
+		if(!($result = $q->execute(array(':id' => $this->idSkoczka)))) {
+			print_r($q->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	public function getWyniki_10()
+	{
+		$q = $this->db->prepare("SELECT * FROM wynik natural join skocznia where idSkoczka = :id and sezon= '2010'");
+		if(!($result = $q->execute(array(':id' => $this->idSkoczka)))) {
+			print_r($q->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	public function getWyniki_11()
+	{
+		$q = $this->db->prepare("SELECT * FROM wynik natural join skocznia where idSkoczka = :id and sezon= '2011'");
+		if(!($result = $q->execute(array(':id' => $this->idSkoczka)))) {
+			print_r($q->errorInfo());
+		} else {
+			return $q;
+		}
+	}
 
 	public function update($id, $post)
 	{

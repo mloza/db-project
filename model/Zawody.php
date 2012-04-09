@@ -1,10 +1,11 @@
 <?php
 class Model_Zawody extends Lib_model{
 	public function getContests($limit = 30, $offset = 0){
-		$m = $this->db->prepare("SELECT * FROM zawody LIMIT :limit OFFSET :offset");
-		$m->bindParam(':limit', $limit);
-		$m->bindParam(':offset', $offset);
-		$m->execute();
+		$m = $this->db->prepare("SELECT * FROM zawody LIMIT 30 OFFSET 0");
+		if(!$m->execute()) {
+			print_r($m->errorInfo());
+			print_r($m);
+		}
 		return $m;
 	}
 	
