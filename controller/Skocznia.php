@@ -1,6 +1,7 @@
 <?php
 class Controller_Skocznia extends lib_controller{
 	
+	
 	public function action_index() {
 		$this->redirect('/skocznia/list.html');
 	}

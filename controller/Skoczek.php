@@ -26,6 +26,10 @@ class Controller_Skoczek extends Lib_Controller {
 		// wyświetlanie wiadomości jest domyślnie zaimplementowane, wystarczy ustawić tą zmeinną w widoku, dostępne typy: pusty, warning, error, success, loading
 		if($msg == 'updated')
 			$this->template->set('msg', array('type' => 'success', 'msg' => 'Zawodnik został zaktualizowany'));
+		else if($msg == 'deleted')
+			$this->template->set('msg', array('type' => 'success', 'msg' => 'Zawodnik został usunięty'));
+		else if($msg == 'added')
+			$this->template->set('msg', array('type' => 'success', 'msg' => 'Zawodnik został udodany'));
 	}
 	
 	public function action_edit($id = NULL)
@@ -45,6 +49,32 @@ class Controller_Skoczek extends Lib_Controller {
 				}
 			 } else $this->template->set('msg', array('type' => "error", 'msg' => "Nie uzupełniłeś wymaganych pól"));
 		}
+	}
+	
+	public function action_add()
+	{
+		$this->subcurrent = 'skoczek-add';
+		$this->breadcrumbs['skoczek/add'] = 'Dodawawnie nowego skoczka';
+		
+		$this->template->view->set('jumper', $this->model);
+		
+		if(!empty($_POST) AND is_array($_POST)) {
+			//sprawdzamy czy podano wszstkie pola które trzeba
+			if(!empty($_POST['imie']) AND !empty($_POST['nazwisko']) AND !empty($_POST['kraj']) AND !empty($_POST['dataUr']))
+			{
+				if(!($e = $this->model->add($_POST)))
+					$this->redirect('/skoczek/list/added.html');
+				else {
+					$this->template->set('msg', array('type' => "error", 'msg' => "Błąd bazy danych: ".$e));
+				}
+			} else $this->template->set('msg', array('type' => "error", 'msg' => "Nie uzupełniłeś wymaganych pól"));
+		}
+	}
+	
+	public function action_delete($id)
+	{
+		$this->model->delete($id);
+		$this->redirect('/skoczek/list/deleted.html');
 	}
 	
 	public function action_details($id = NULL)

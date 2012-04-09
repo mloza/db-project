@@ -1,6 +1,9 @@
 <?php
 class Model_Skoczek extends Lib_Model {
 
+	public $imie, $nazwisko, $dataUrodzenia, $krajPochodzenia, $plec, $dataSmierci, $informacje;
+	
+	
 	public function getJumpers($limit = 30, $offset = 0) {
 		$q = $this->db->prepare("SELECT * FROM skoczek LIMIT 30 OFFSET 0");
 		$q->execute();
@@ -94,5 +97,30 @@ class Model_Skoczek extends Lib_Model {
 		} catch(Exception $e) {
 			return $e->getMessage();
 		}
+	}
+	
+	public function add($post)
+	{
+		try {
+			if(!$post['dataSm']) $post['dataSm'] = NULL;
+			$q = $this->db->prepare("INSERT INTO skoczek(`imie`, `nazwisko`, `krajPochodzenia`, `dataUrodzenia`, `dataSmierci`, `plec`) VALUES (:imie, :nazwisko, :kraj, :dataUr, :dataSm, :plec)");
+			$q->bindParam(':imie', $post['imie'], PDO::PARAM_STR);
+			$q->bindParam(':nazwisko', $post['nazwisko'], PDO::PARAM_STR);
+			$q->bindParam(':kraj', $post['kraj'], PDO::PARAM_STR);
+			$q->bindParam(':dataUr', $post['dataUr'], PDO::PARAM_STR);
+			$q->bindParam(':dataSm', $post['dataSm'], PDO::PARAM_STR);
+			$q->bindParam(':plec', $post['plec'], PDO::PARAM_STR);
+			if(!$q->execute()) throw new Exception("Database Error: ".print_r($q->errorInfo(), true));
+			return 0;
+		} catch(Exception $e) {
+			return $e->getMessage();
+		}
+	}
+	
+	public function delete($id)
+	{
+		$q = $this->db->prepare('DELETE FROM skoczek WHERE idSkoczka = :id');
+		$q->bindParam(':id', $id);
+		if(!$q->execute()) throw new Exception("Database Error: ".print_r($q->errorInfo(), true));
 	}
 }
