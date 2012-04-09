@@ -16,6 +16,12 @@ class Model_Zawody extends Lib_model{
 		return $m->fetchObject("Model_Zawody");
 	}
 	
+	public function getSeasons(){
+		$m = $this->db->prepare('SELECT * FROM sezon WHERE nazwaZawodow=:nazwa');
+		$m->bindParam(':nazwa', $this->nazwa, PDO::PARAM_STR);
+		if(!$m->execute()) print_r($m->errorInfo());
+		return $m;
+	}
 	
 	public function getWyniki($sezon)
 	{
@@ -28,6 +34,27 @@ class Model_Zawody extends Lib_model{
 		}
 	}
 	
+	public function getWynikiBySezonSkocznia($sezon, $idSkoczni)
+	{
+		$id = $_GET['nazwa'];
+		$q = $this->db->prepare("SELECT * from sezon join zawody on(nazwaZawodow=nazwa) join wynik on (sezon.sezon = wynik.sezon and sezon.nazwaZawodow=wynik.nazwaZawodow) join skoczek on(wynik.idSkoczka=skoczek.idSkoczka) where zawody.nazwa = :id and sezon.sezon= :sezon and idSkoczni = :idSkocznia");
+		if(!($result = $q->execute(array(':id' => $this->nazwa, ':sezon'=>$sezon, ':idSkocznia' => $idSkoczni)))) {
+			print_r($q->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	
+	public function getSkocznie($sezon)
+	{
+		$id = $_GET['nazwa'];
+		$q = $this->db->prepare("SELECT DISTINCT ass.idSkoczni, ass.sezon, ass.nazwa, skocznia.nazwa as nSkoczni FROM arbiter_skocznia_sezon ass JOIN skocznia ON ass.idSkoczni = skocznia.idSkoczni WHERE ass.sezon = :sezon AND ass.nazwa = :nazwa");
+		if(!($result = $q->execute(array(':nazwa' => $this->nazwa, ':sezon'=>$sezon)))) {
+			print_r($q->errorInfo());
+		} else {
+			return $q;
+		}
+	}
 	
 	public function update($id, $post)
 	{
