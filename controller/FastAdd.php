@@ -4,7 +4,7 @@ class controller_FastAdd extends Lib_Controller {
 
 	public function __construct($addr) {
 		
-		if($addr['action'] == 'action_add') $this->template = 'templates/ajax';
+		if( in_array($addr['action'], array('action_add', 'action_makenz'))) $this->template = 'templates/ajax';
 		
 		parent::__construct($addr);
 	}
@@ -21,4 +21,18 @@ class controller_FastAdd extends Lib_Controller {
 		$this->template->view->set('q', $q);
 	}
 	
+	public function action_nz()
+	{
+		
+	}
+	
+	public function action_makenz()
+	{
+	
+	}
+	
+	public function action_wyniki()
+	{
+		
+	}	
 }
