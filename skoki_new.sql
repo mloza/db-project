@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2012 at 12:24 AM
+-- Generation Time: Apr 09, 2012 at 12:46 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -1653,7 +1653,7 @@ CREATE TABLE IF NOT EXISTS `nagroda` (
   `nazwaNagrody` varchar(80) NOT NULL,
   `wartosc` int(15) NOT NULL,
   PRIMARY KEY (`idNagrody`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
 
 --
 -- Dumping data for table `nagroda`
@@ -1725,7 +1725,10 @@ INSERT INTO `nagroda` (`idNagrody`, `nazwaNagrody`, `wartosc`) VALUES
 (65, 'Brązowy puchar Drużynowych Mistrzostw Świata w Lotach', 100000),
 (69, 'Puchar za pierwsze miejsce w drużynowym letnim pucharze kontynentalnym', 150000),
 (70, 'Puchar za drugie miejsce w drużynowym letnim pucharze kontynentalnym', 120000),
-(71, 'Puchar za trzecie miejsce w drużynowym letnim pucharze kontynentalnym', 90000);
+(71, 'Puchar za trzecie miejsce w drużynowym letnim pucharze kontynentalnym', 90000),
+(72, 'Złoty puchar Pucharu Kontynentalnego Kobiet', 500000),
+(73, 'Srebrny puchar Pucharu Kontynentalnego Kobiet', 200000),
+(74, 'Brązowy puchar Pucharu Kontynentalnego Kobiet', 100000);
 
 -- --------------------------------------------------------
 
@@ -2004,6 +2007,93 @@ INSERT INTO `nagroda_skoczek` (`idSkoczka`, `idNagrody`, `data`) VALUES
 (23, 13, '2009-12-09'),
 (23, 41, '2011-01-17'),
 (23, 14, '2011-12-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nagroda_zawody`
+--
+
+CREATE TABLE IF NOT EXISTS `nagroda_zawody` (
+  `idNagrody` int(8) NOT NULL,
+  `nazwaZawodow` varchar(80) NOT NULL,
+  `miejsce` int(1) NOT NULL,
+  PRIMARY KEY (`idNagrody`,`nazwaZawodow`,`miejsce`),
+  KEY `fk_zaw` (`nazwaZawodow`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `nagroda_zawody`
+--
+
+INSERT INTO `nagroda_zawody` (`idNagrody`, `nazwaZawodow`, `miejsce`) VALUES
+(5, 'Alpen Cup', 1),
+(6, 'Alpen Cup', 2),
+(7, 'Alpen Cup', 3),
+(2, 'Alpen Cup Winter', 1),
+(3, 'Alpen Cup Winter', 2),
+(4, 'Alpen Cup Winter', 3),
+(57, 'Drużynowe Mistrzostwa Świata', 1),
+(58, 'Drużynowe Mistrzostwa Świata', 2),
+(59, 'Drużynowe Mistrzostwa Świata', 3),
+(60, 'Drużynowe Mistrzostwa Świata Juniorów', 1),
+(61, 'Drużynowe Mistrzostwa Świata Juniorów', 2),
+(62, 'Drużynowe Mistrzostwa Świata Juniorów', 3),
+(63, 'Drużynowe Mistrzostwa Świata w lotach', 1),
+(64, 'Drużynowe Mistrzostwa Świata w lotach', 2),
+(65, 'Drużynowe Mistrzostwa Świata w lotach', 3),
+(69, 'Drużynowy Letni Puchar Kontynentalny', 1),
+(70, 'Drużynowy Letni Puchar Kontynentalny', 2),
+(71, 'Drużynowy Letni Puchar Kontynentalny', 3),
+(10, 'Grand Prix Czterech Narodów', 2),
+(11, 'Grand Prix Czterech Narodów', 3),
+(12, 'Letni CoC Kobiet', 1),
+(13, 'Letni CoC Kobiet', 2),
+(14, 'Letni CoC Kobiet', 3),
+(15, 'Letni Puchar Kontynentalny', 1),
+(16, 'Letni Puchar Kontynentalny', 2),
+(17, 'Letni Puchar Kontynentalny', 3),
+(18, 'Letnia Grand Prix', 1),
+(19, 'Letnia Grand Prix', 2),
+(20, 'Letnia Grand Prix', 3),
+(21, 'Lotos Cup', 1),
+(22, 'Lotos Cup', 2),
+(23, 'Lotos Cup', 3),
+(24, 'Mistrzostwa Polski', 1),
+(25, 'Mistrzostwa Polski', 2),
+(26, 'Mistrzostwa Polski', 3),
+(27, 'Mistrzostwa Świata', 1),
+(28, 'Mistrzostwa Świata', 2),
+(29, 'Mistrzostwa Świata', 3),
+(30, 'Mistrzostwa Świata Juniorów', 1),
+(31, 'Mistrzostwa Świata Juniorów', 2),
+(32, 'Mistrzostwa Świata Juniorów', 3),
+(33, 'Mistrzostwa Świata w lotach', 1),
+(34, 'Mistrzostwa Świata w lotach', 2),
+(35, 'Mistrzostwa Świata w lotach', 3),
+(36, 'Puchar Kontynentalny', 1),
+(37, 'Puchar Kontynentalny', 2),
+(38, 'Puchar Kontynentalny', 3),
+(72, 'Puchar Kontynentalny Kobiet', 1),
+(73, 'Puchar Kontynentalny Kobiet', 2),
+(74, 'Puchar Kontynentalny Kobiet', 3),
+(42, 'Puchar Świata', 1),
+(43, 'Puchar Świata', 2),
+(44, 'Puchar Świata', 3),
+(39, 'Puchar Świata Kobiet', 1),
+(40, 'Puchar Świata Kobiet', 2),
+(41, 'Puchar Świata Kobiet', 3),
+(45, 'Puchar Świata w lotach', 1),
+(46, 'Puchar Świata w lotach', 2),
+(48, 'Turniej Czterech Skoczni', 1),
+(49, 'Turniej Czterech Skoczni', 2),
+(50, 'Turniej Czterech Skoczni', 3),
+(51, 'Turniej Skandynawski', 1),
+(52, 'Turniej Skandynawski', 2),
+(53, 'Turniej Skandynawski', 3),
+(54, 'Zimowe Igrzyska Olimpijskie', 1),
+(55, 'Zimowe Igrzyska Olimpijskie', 2),
+(56, 'Zimowe Igrzyska Olimpijskie', 3);
 
 -- --------------------------------------------------------
 
@@ -2758,9 +2848,9 @@ INSERT INTO `zawody` (`nazwa`, `typ`) VALUES
 -- Constraints for table `arbiter_skocznia_sezon`
 --
 ALTER TABLE `arbiter_skocznia_sezon`
-  ADD CONSTRAINT `nazwa` FOREIGN KEY (`sezon`, `nazwa`) REFERENCES `sezon` (`sezon`, `nazwaZawodow`),
   ADD CONSTRAINT `arbiter_skocznia_sezon_ibfk_1` FOREIGN KEY (`idSkoczni`) REFERENCES `skocznia` (`idSkoczni`),
-  ADD CONSTRAINT `arbiter_skocznia_sezon_ibfk_2` FOREIGN KEY (`idSedziego`) REFERENCES `arbiter` (`idSedziego`);
+  ADD CONSTRAINT `arbiter_skocznia_sezon_ibfk_2` FOREIGN KEY (`idSedziego`) REFERENCES `arbiter` (`idSedziego`),
+  ADD CONSTRAINT `nazwa` FOREIGN KEY (`sezon`, `nazwa`) REFERENCES `sezon` (`sezon`, `nazwaZawodow`);
 
 --
 -- Constraints for table `kombinezon`
@@ -2781,6 +2871,13 @@ ALTER TABLE `nagroda_druzyna`
 ALTER TABLE `nagroda_skoczek`
   ADD CONSTRAINT `nagroda_skoczek_ibfk_1` FOREIGN KEY (`idSkoczka`) REFERENCES `skoczek` (`idSkoczka`) ON UPDATE CASCADE,
   ADD CONSTRAINT `nagroda_skoczek_ibfk_2` FOREIGN KEY (`idNagrody`) REFERENCES `nagroda` (`idNagrody`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `nagroda_zawody`
+--
+ALTER TABLE `nagroda_zawody`
+  ADD CONSTRAINT `fk_nagroda` FOREIGN KEY (`idNagrody`) REFERENCES `nagroda` (`idNagrody`),
+  ADD CONSTRAINT `fk_zaw` FOREIGN KEY (`nazwaZawodow`) REFERENCES `zawody` (`nazwa`);
 
 --
 -- Constraints for table `narty`
