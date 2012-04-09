@@ -79,6 +79,17 @@ class Model_Skoczek extends Lib_Model {
 			return $q;
 		}
 	}
+	
+	public function getWyniki($sezon)
+	{
+		$q = $this->db->prepare("SELECT * FROM wynik natural join skocznia where idSkoczka = :id and sezon= :sezon");
+		if(!($result = $q->execute(array(':id' => $this->idSkoczka, ':sezon'=>$sezon)))) {
+			print_r($q->errorInfo());
+		} else {
+			return $q;
+		}
+	}
+	
 
 	public function update($id, $post)
 	{
