@@ -54,6 +54,14 @@
 					<div class="col200pxL-right">
 
 						<div id="one" class="tabs-content">
+							<ul class="tabs js-tabs same-height">
+
+								<li class="current"><a href="#tab-locales" title="Locales">Locales</a></li>
+
+								<li><a href="#tab-options" title="Options">Options</a></li>
+
+							</ul>
+							
 							<div>
 								<table class="table" cellspacing="0" width="100%">
 									<thead>
