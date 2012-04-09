@@ -297,6 +297,14 @@
 
 				</ul>
 			</li>
+
+			<li class="users <?php $current == 'sezon' and print 'current'; ?>"><a href="/sezon/list.html" title="Sezony">Sezony</a>
+				<ul>
+					<li <?php $subcurrent == 'sezon-list' and print 'class="current"'; ?>><a href="/sezon/list.html" title="Informacje o sezonach">Informacje o sezonach</a></li>
+					<li <?php $subcurrent == 'sezon-add' and print 'class="current"'; ?>><a href="/sezon/add.html" title="Dodaj nowy">Dodaj sezon</a></li>
+
+				</ul>
+			</li>
 		</ul>
 	</nav>
 	<!-- End main nav -->
