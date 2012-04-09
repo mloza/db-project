@@ -213,7 +213,7 @@
 									</thead>
 
 									<tbody>
-										<?php  $p = $jumper->getWyniki_8(); while($n = $p->fetchObject()) { ?>
+										<?php  $p = $jumper->getWyniki(2008); while($n = $p->fetchObject()) { ?>
 										<tr>
 											<!--onclick="document.location.href='/skoczek/details/<?php echo $n->idSkoczka ?>.html';"
 											style="cursor: pointer;"> -->
@@ -222,7 +222,7 @@
 												value="1"></th>
 											<td><?php echo $n->nazwaZawodow ?></td>
 											<td><?php echo $n->nazwa ?></td>
-											<td><?php echo $n->odleglosc ?></td>
+											<td><?php echo $n->odleglosc ?> m</td>
 											<td><?php echo $n->punkty ?></td>
 											<td><?php echo $n->data ?></td>
 										</tr>
@@ -250,7 +250,7 @@
 									</thead>
 
 									<tbody>
-										<?php  $p = $jumper->getWyniki_9(); while($n = $p->fetchObject()) { ?>
+										<?php  $p = $jumper->getWyniki(2009); while($n = $p->fetchObject()) { ?>
 										<tr>
 											<!--onclick="document.location.href='/skoczek/details/<?php echo $n->idSkoczka ?>.html';"
 											style="cursor: pointer;"> -->
@@ -259,7 +259,7 @@
 												value="1"></th>
 											<td><?php echo $n->nazwaZawodow ?></td>
 											<td><?php echo $n->nazwa ?></td>
-											<td><?php echo $n->odleglosc ?></td>
+											<td><?php echo $n->odleglosc ?> m</td>
 											<td><?php echo $n->punkty ?></td>
 											<td><?php echo $n->data ?></td>
 										</tr>
@@ -285,7 +285,7 @@
 									</thead>
 
 									<tbody>
-										<?php  $p = $jumper->getWyniki_10(); while($n = $p->fetchObject()) { ?>
+										<?php  $p = $jumper->getWyniki(2010); while($n = $p->fetchObject()) { ?>
 										<tr>
 											<!--onclick="document.location.href='/skoczek/details/<?php echo $n->idSkoczka ?>.html';"
 											style="cursor: pointer;"> -->
@@ -294,7 +294,7 @@
 												value="1"></th>
 											<td><?php echo $n->nazwaZawodow ?></td>
 											<td><?php echo $n->nazwa ?></td>
-											<td><?php echo $n->odleglosc ?></td>
+											<td><?php echo $n->odleglosc ?> m</td>
 											<td><?php echo $n->punkty ?></td>
 											<td><?php echo $n->data ?></td>
 										</tr>
@@ -319,7 +319,7 @@
 									</thead>
 
 									<tbody>
-										<?php  $p = $jumper->getWyniki_11(); while($n = $p->fetchObject()) { ?>
+										<?php  $p = $jumper->getWyniki(2011); while($n = $p->fetchObject()) { ?>
 										<tr>
 											<!--onclick="document.location.href='/skoczek/details/<?php echo $n->idSkoczka ?>.html';"
 											style="cursor: pointer;"> -->
@@ -328,7 +328,7 @@
 												value="1"></th>
 											<td><?php echo $n->nazwaZawodow ?></td>
 											<td><?php echo $n->nazwa ?></td>
-											<td><?php echo $n->odleglosc ?></td>
+											<td><?php echo $n->odleglosc ?> m </td>
 											<td><?php echo $n->punkty ?></td>
 											<td><?php echo $n->data ?></td>
 										</tr>
@@ -344,7 +344,7 @@
 		</div>
 
 		<div class="clear"></div>
-
+		<br><br>
 		<div class="block-border">
 			<div class="block-content">
 				<div class="h1">

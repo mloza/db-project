@@ -10,8 +10,21 @@ class Model_Arbiter extends lib_model{
 		$a = $this->db->prepare('SELECT * FROM arbiter WHERE idSedziego = :id LIMIT 1');
 		$a->bindParam(':id', $id, PDO::PARAM_INT);
 		$a->execute();
-		return $a->fetchObject();
+		return $a->fetchObject("Model_Arbiter");
 	}
+	
+	
+
+		
+		public function getWyniki($sezon)
+		{
+			$q = $this->db->prepare("SELECT *, arbiter_skocznia_sezon.nazwa as name, skocznia.nazwa as nazwaskoczni FROM arbiter_skocznia_sezon join arbiter on(arbiter.idSedziego = arbiter_skocznia_sezon.idSedziego) join skocznia on(skocznia.idSkoczni = arbiter_skocznia_sezon.idSkoczni) where arbiter.idSedziego = :id and sezon= :sezon");
+			if(!($result = $q->execute(array(':id' => $this->idSedziego, ':sezon'=>$sezon)))) {
+				print_r($q->errorInfo());
+			} else {
+				return $q;
+			}
+		}
 	
 	public function update($id, $post)
 	{
