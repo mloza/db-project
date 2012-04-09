@@ -18,13 +18,13 @@
 					
 					<tbody>
 					<?php while($contest = $contests->fetchObject()) { ?>
-							<tr>
+							<tr onclick="document.location.href='/zawody/details.html?nazwa=<?php echo urlencode($contest->nazwa); ?>';" style="cursor:pointer;">
 								<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
 								<td> <?php echo $contest->nazwa ?></td>
 								<td> <?php echo $contest->typ ?></td>
 								<td class="table-actions">
-								<a href="/zawody/edit/<?php //echo $contest->idNagrody ?>.html" title="Edycja" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
-								<a href="/zawody/delete/<?php //echo $contest->idNagrody ?>.html" title="usuń" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+								<a href="/zawody/edit.html?nazwa=<?php echo urlencode($contest->nazwa); ?>" title="Edycja" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
+								<a href="/zawody/delete.html" title="usuń" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
 							</td>
 							</tr>	
 					<?php }?>						

@@ -31,7 +31,7 @@
 					
 					<tbody>
 					<?php while($trener = $treners->fetchObject()) { ?>
-							<tr>
+							<tr onclick="document.location.href='/trener/details/<?php echo $trener->idTrenera ?>.html';" style="cursor:pointer;">
 								<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
 								<td> <?php echo $trener->imie ?></td>
 								<td> <?php echo $trener->nazwisko ?></td>

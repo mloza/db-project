@@ -105,7 +105,7 @@
 					
 					<tbody>
 					<?php while($jumper = $jumpers->fetchObject()) { ?>
-						<tr>
+						<tr onclick="document.location.href='/skoczek/details/<?php echo $jumper->idSkoczka ?>.html';" style="cursor:pointer;">
 							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
 							<td><?php echo $jumper->imie ?></td>
 							<td><?php echo $jumper->nazwisko ?></td>
@@ -115,7 +115,7 @@
 							<td><?php echo $jumper->plec ?></td>
 							<td class="table-actions">
 								<a href="/skoczek/edit/<?php echo $jumper->idSkoczka ?>.html" title="Edit" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
-								<a href="/skoczek/delete/<?php echo $jumper->idSkoczka ?>.html" title="Delete" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
+								<a href="/skoczek/delete/<?php echo $jumper->idSkoczka ?>.html" onclick="return confirm('Jesteś pewny? Tej akcji nie da się cofnąć');" title="Delete" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
 							</td>
 						</tr>					
 					<?php } ?>

@@ -283,7 +283,7 @@
 		<ul class="container_12">
 			<li class="home <?php $current == 'home' and print 'current'; ?>"><a href="/" title="Home">Home</a></li>
 
-			<li class="users <?php $current == 'skoczek' and print 'current'; ?>"><a href="/skoczek/list.html" title="Skoczkowie">Skoczkowie</a>
+			<li class="jumper <?php $current == 'skoczek' and print 'current'; ?>"><a href="/skoczek/list.html" title="Skoczkowie">Skoczkowie</a>
 				<ul>
 					<li <?php $subcurrent == 'skoczek-list' and print 'class="current"'; ?>><a href="/skoczek/list.html" title="Przeglądaj">Lista</a></li>
 					<li <?php $subcurrent == 'skoczek-add' and print 'class="current"'; ?>><a href="/skoczek/add.html" title="Dodaj nowego">Dodaj skoczka</a></li>
@@ -303,6 +303,36 @@
 					<li <?php $subcurrent == 'sezon-list' and print 'class="current"'; ?>><a href="/sezon/list.html" title="Informacje o sezonach">Informacje o sezonach</a></li>
 					<li <?php $subcurrent == 'sezon-add' and print 'class="current"'; ?>><a href="/sezon/add.html" title="Dodaj nowy">Dodaj sezon</a></li>
 
+				</ul>
+			</li>
+			<li class="skiJump <?php $current == 'skocznia' and print 'current'; ?>"><a href="/skocznia/list.html" title="Skocznie">Skocznie</a>
+				<ul>
+					<li <?php $subcurrent == 'skocznia-list' and print 'class="current"'; ?>><a href="/skocznia/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'skocznia-add' and print 'class="current"'; ?>><a href="/skocznia/add.html" title="Dodaj nową">Dodaj skocznie</a></li>
+				</ul>
+			</li>
+			<li class="contest <?php $current == 'zawody' and print 'current'; ?>"><a href="/zawody/list.html" title="Zawody">Zawody</a>
+				<ul>
+					<li <?php $subcurrent == 'zawody-list' and print 'class="current"'; ?>><a href="/zawody/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'zawody-add' and print 'class="current"'; ?>><a href="/zawody/add.html" title="Dodaj nowe">Dodaj zawody</a></li>
+				</ul>
+			</li>
+				<li class="prize <?php $current == 'nagroda' and print 'current'; ?>"><a href="/nagroda/list.html" title="Nagrody">Nagrody</a>
+				<ul>
+					<li <?php $subcurrent == 'nagroda-list' and print 'class="current"'; ?>><a href="/nagroda/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'nagroda-add' and print 'class="current"'; ?>><a href="/nagroda/add.html" title="Dodaj nową">Dodaj nagrodę</a></li>
+				</ul>
+			</li>
+				<li class="arbiter <?php $current == 'arbiter' and print 'current'; ?>"><a href="/arbiter/list.html" title="Arbitrowie">Arbitrowie</a>
+				<ul>
+					<li <?php $subcurrent == 'arbiter-list' and print 'class="current"'; ?>><a href="/arbiter/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'arbiter-add' and print 'class="current"'; ?>><a href="/arbiter/add.html" title="Dodaj nowego">Dodaj arbitra</a></li>
+				</ul>
+			</li>
+				<li class="druzyna <?php $current == 'druzyna' and print 'current'; ?>"><a href="/druzyna/list.html" title="Drużyny">Drużyny</a>
+				<ul>
+					<li <?php $subcurrent == 'druzyna-list' and print 'class="current"'; ?>><a href="/druzyna/list.html" title="Przeglądaj">Lista</a></li>
+					<li <?php $subcurrent == 'druzyna-add' and print 'class="current"'; ?>><a href="/druzyna/add.html" title="Dodaj nową">Dodaj drużynę</a></li>
 				</ul>
 			</li>
 		</ul>

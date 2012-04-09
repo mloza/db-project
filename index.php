@@ -29,3 +29,4 @@ elseif (!empty($addr['param1']))
 else
 	$controller->$addr['action']();
 $controller->after();
+
