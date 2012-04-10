@@ -19,6 +19,10 @@ class Controller_Trener extends lib_controller{
 		
 		if($msg == 'updated')
 			$this->template->set('msg', array('type' => 'success', 'msg' => 'Trener został zaktualizowany'));
+		else if($msg == 'deleted')
+			$this->template->set('msg', array('type' => 'success', 'msg' => 'Trener został usunięty'));
+		else if($msg == 'added')
+			$this->template->set('msg', array('type' => 'success', 'msg' => 'Trener został dodany'));
 	} 
 	
 	public function action_edit($id = NULL){
