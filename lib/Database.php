@@ -5,6 +5,8 @@
 	
 	private $config = array();
 	private $connection;
+	private $queries = array();
+	private $debug = true;
 	
 	static function Instance() {
 		if(self::$instance == null) self::$instance = new Lib_Database();
@@ -27,11 +29,25 @@
 	
 	public function prepare($query)
 	{
+		$this->queries[] = $query;
 		return $this->connection->prepare($query);
 	}
 	
 	public function query($query)
 	{
+		$this->queries[] = $query;
 		return $this->connection->query($query);
+	}
+	
+	public function __destruct()
+	{
+		if($this->debug) {
+			echo '<section class="grid_12"><pre>',print_r($this->queries, true),'</pre><div class="clear"></div></section>';	
+		}
+	}
+	
+	public function quote($qs)
+	{
+		return $this->connection->quote($qs);
 	}
  }
