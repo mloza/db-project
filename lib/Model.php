@@ -16,7 +16,7 @@ class Lib_Model {
 		$q = $this->db->query('Show columns from '.str_replace('Model_', '', get_called_class()).'');
 		while($f = $q->fetchObject())
 		{
-			$this->{ $f->Field } = '';
+			//$this->{ $f->Field } = '';
 		}
 	}	
 }

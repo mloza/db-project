@@ -64,7 +64,10 @@
 												<th class="black-cell"></th>
 												<th scope="col">Imię</th>
 												<th scope="col">Nazwisko</th>
+												<th scope="col">Odległość</th>
+												<th scope="col">Punkty</th>
 												<th scope="col">Data</th>
+												
 										</thead>
 	
 										<tbody>
@@ -78,9 +81,9 @@
 													value="1"></th>
 												<td><?php echo $n->imie ?></td>
 												<td><?php echo $n->nazwisko ?></td>
+												<td><?php echo $n->odleglosc ?></td>
+												<td><?php echo $n->punkty ?></td>
 												<td><?php echo $n->data ?></td>
-												
-												
 											</tr>
 											<?php } ?>
 										</tbody>
