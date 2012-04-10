@@ -1,8 +1,5 @@
 <?php
 class Model_Skoczek extends Lib_Model {
-
-	public $imie, $nazwisko, $dataUrodzenia, $krajPochodzenia, $plec, $dataSmierci, $informacje;
-	
 	
 	public function getJumpers($limit = 30, $offset = 0) {
 		$q = $this->db->prepare("SELECT * FROM skoczek LIMIT 30 OFFSET 0");
