@@ -251,6 +251,7 @@ nav {
 			nav > ul > li.prize, nav > ul > li.prize > a { background-image: url(../images/icons/goals.png); }
 			nav > ul > li.arbiter, nav > ul > li.arbiter > a { background-image: url(../images/icons/chopek1.png); }
 			nav > ul > li.druzyna, nav > ul > li.druzyna > a { background-image: url(../images/icons/druzyny.png); }
+			nav > ul > li.sezon, nav > ul > li.sezon > a { background-image: url(../images/icons/sezon.png); }
 			
 			nav > ul > li.current {
 				padding: 0 8px 13px 8px;
