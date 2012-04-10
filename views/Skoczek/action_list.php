@@ -117,7 +117,7 @@
 								<a href="/skoczek/edit/<?php echo $jumper->idSkoczka ?>.html" title="Edit" class="with-tip"><img src="/images/icons/fugue/pencil.png" width="16" height="16"></a>
 								<a href="/skoczek/delete/<?php echo $jumper->idSkoczka ?>.html" onclick="return confirm('Jesteś pewny? Tej akcji nie da się cofnąć');" title="Delete" class="with-tip"><img src="/images/icons/fugue/cross-circle.png" width="16" height="16"></a>
 							</td>
-						</tr>						
+						</tr>					
 					<?php } ?>
 					</tbody>
 				

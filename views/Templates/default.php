@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Projekt z baz dancyh v1.0</title>
+	<title>Projekt z baz danych v1.0</title>
 	<meta charset="utf-8">
 	
 	<!-- Global stylesheets -->
@@ -293,6 +293,7 @@
 				<ul>
 					<li <?php $subcurrent == 'trener-list' and print 'class="current"'; ?>><a href="/trener/list.html" title="Przeglądaj">Lista</a></li>
 					<li <?php $subcurrent == 'trener-add' and print 'class="current"'; ?>><a href="/trener/add.html" title="Dodaj nowego">Dodaj trenera</a></li>
+
 				</ul>
 			</li>
 			<li class="skiJump <?php $current == 'skocznia' and print 'current'; ?>"><a href="/skocznia/list.html" title="Skocznie">Skocznie</a>
@@ -323,6 +324,13 @@
 				<ul>
 					<li <?php $subcurrent == 'druzyna-list' and print 'class="current"'; ?>><a href="/druzyna/list.html" title="Przeglądaj">Lista</a></li>
 					<li <?php $subcurrent == 'druzyna-add' and print 'class="current"'; ?>><a href="/druzyna/add.html" title="Dodaj nową">Dodaj drużynę</a></li>
+				</ul>
+			</li>
+				<li class="sezon <?php $current == 'sezon' and print 'current'; ?>"><a href="/sezon/list.html" title="Sezony">Sezony</a>
+				<ul>
+					<li <?php $subcurrent == 'sezon-list' and print 'class="current"'; ?>><a href="/sezon/list.html" title="Informacje o sezonach">Informacje o sezonach</a></li>
+					<li <?php $subcurrent == 'sezon-add' and print 'class="current"'; ?>><a href="/sezon/add.html" title="Dodaj nowy">Dodaj sezon</a></li>
+
 				</ul>
 			</li>
 		</ul>
