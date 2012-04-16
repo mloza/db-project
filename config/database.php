@@ -2,7 +2,7 @@
 
 return array(
 			'username' => 'root',
-			'password' => '38to8aer',
+			'password' => '',
 			'host' => 'localhost',
 			'db' => 'skoki_new',
 		);

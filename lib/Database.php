@@ -6,7 +6,7 @@
 	private $config = array();
 	private $connection;
 	private $queries = array();
-	private $debug = true;
+	private $debug = false;
 	
 	static function Instance() {
 		if(self::$instance == null) self::$instance = new Lib_Database();
