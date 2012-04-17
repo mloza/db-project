@@ -19,41 +19,67 @@
 					
 				</div>
 				 -->
-				<!-- <form class="form" id="tab-stats" method="post" action="">
-					
+				 <script type="text/javascript">
+					$(document).ready(function() {
+						$('#tab-stats').submit(function(e) {
+							e.preventDefault();
+							$('#skoczkowie .black-cell span').addClass('loading');
+							$.post('', $(this).serialize(), function(r) { $('#skoczkowie .black-cell span').removeClass('loading'); $('#skoczkowie tbody').html($(r).find('#skoczkowie tbody').html()); });
+						});
+					});
+				 </script>
+				<form class="form" id="tab-stats" method="post" action="">
 					<fieldset class="grey-bg">
-						<legend><a href="#">Options</a></legend>
+						<legend><a href="#">Opcje wyświetlania</a></legend>
 						
 						<div class="float-left gutter-right">
-							<label for="stats-period">Period</label>
-							<span class="input-type-text"><input type="text" name="stats-period" id="stats-period" value=""><img src="images/icons/fugue/calendar-month.png" width="16" height="16"></span>
+							<label for="stats-period">Wyszukaj</label>
+							<span class="input-type-text"><input type="text" name="q" id="stats-period" value="<?php !empty($_POST['q']) and print $_POST['q'] ?>" placeholder="Szukana fraza..."></span>
 						</div>
 						<div class="float-left gutter-right">
-							<span class="label">Display</span>
+							<span class="label">Dodatkowe</span>
 							<p class="input-height grey-bg">
-								<input type="checkbox" name="stats-display[]" id="stats-display-0" value="0">&nbsp;<label for="stats-display-0">Views</label> 
-								<input type="checkbox" name="stats-display[]" id="stats-display-1" value="1">&nbsp;<label for="stats-display-1">Unique visitors</label>
+								<input type="checkbox" name="additional" id="stats-display-0" value="1" <?php if(!empty($_POST['additional']) AND $_POST['additional'] == '1'):?>checked="checked"<?php endif; ?>>&nbsp;<label for="stats-display-0">Tylko żyjący</label> 
 							</p> 
 						</div>
 						<div class="float-left gutter-right">
-							<span class="label">Sites</span>
+							<span class="label">Płeć</span>
 							<p class="input-height grey-bg">
-								<input type="radio" name="stats-sites" id="stats-sites-0" value="0">&nbsp;<label for="stats-sites-0">Group</label> 
-								<input type="radio" name="stats-sites" id="stats-sites-1" value="1">&nbsp;<label for="stats-sites-1">Separate</label>
+								<input type="radio" name="plec" id="stats-sites-0" value="kobieta" <?php if(!empty($_POST['plec']) AND $_POST['plec'] == 'kobieta'):?>checked="checked"<?php endif; ?>>&nbsp;<label for="stats-sites-0">Kobiety</label> 
+								<input type="radio" name="plec" id="stats-sites-1" value="mężczyzna" <?php if(!empty($_POST['plec']) AND $_POST['plec'] == 'mężczyzna'):?>checked="checked"<?php endif; ?>>&nbsp;<label for="stats-sites-1">Mężczyźni</label>
 							</p>
 						</div>
-						<div class="float-left">
-							<span class="label">Mode</span>
-							<select name="stats-sites" id="stats-sites-0">
-								<option value="0">Bars</option>
-								<option value="0">Lines</option>
+						<div class="float-left gutter-right">
+							<span class="label">Sortowanie</span>
+							<select name="order" id="stats-sites-0">
+								<option value="idSkoczka">Kolejność dodania</option>
+								<option value="imie">Imie</option>
+								<option value="nazwisko">Nazwisko</option>
+								<option value="krajPochodzenia">Kraj</option>
+								<option value="dataUrodzenia">Data urodzenia</option>
+								<option value="dataSmierci">Data śmierci</option>
+								<option value="plec">Płeć</option>
 							</select>
+						</div>
+						<div class="float-left gutter-right">
+							<span class="label">Kierunek sortowania</span>
+							<select name="dir" id="stats-sites-0">
+								<option value="ASC">Niemalejąco</option>
+								<option value="DESC">Nierosnąco</option>
+							</select>
+						</div>
+						<div class="float-left">
+							<span class="label">&nbsp;</span>
+							<button type="submit">Wyszukaj</button>
 						</div>
 					</fieldset>
 					
 
 					
-				</form> -->
+				</form> 
+				
+				<br><br>
+				
 				<!-- 
 				<div id="tab-comments" class="with-margin">
 					<script type="text/javascript">
@@ -80,11 +106,11 @@
 				</ul>
 				 -->
 				 
-				 <div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				 <div class="no-margin"><table class="table" id="skoczkowie" cellspacing="0" width="100%">
 				
 					<thead>
 						<tr>
-							<th class="black-cell"><span class="loading"></span></th>
+							<th class="black-cell"><span class=""></span></th>
 							<th scope="col">
 								Imię
 							</th>

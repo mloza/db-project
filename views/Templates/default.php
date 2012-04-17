@@ -338,11 +338,11 @@
 	<!-- Sub nav -->
 	<div id="sub-nav"><div class="container_12">
 		
-		<a href="#" title="Help" class="nav-button"><b>Help</b></a>
+		<!--<a href="#" title="Help" class="nav-button"><b>Help</b></a>
 	
 		<form id="search-form" name="search-form" method="post" action="search.html">
 			<input type="text" name="s" id="s" value="" title="Search admin..." autocomplete="off">
-		</form>
+		</form> -->
 	
 	</div></div>
 	<!-- End sub nav -->
@@ -350,10 +350,10 @@
 	<!-- Status bar -->
 	<div id="status-bar"><div class="container_12">
 	
-		<ul id="status-infos">
+		<!-- <ul id="status-infos">
 			<li class="spaced">Logged as: <strong>Admin</strong></li>
 			<li><a href="login.html" class="button red" title="Logout"><span class="smaller">LOGOUT</span></a></li>
-		</ul>
+		</ul>-->
 		
 		<ul id="breadcrumb">
 			<?php foreach($breadcrumbs as $a => $name): ?>

@@ -1,4 +1,4 @@
-<form action="" method="post" class="form">
+<form action="" method="post" class="form" enctype="multipart/form-data">
 	<fieldset class="grey-bg">
 		<legend>Dane osobowe</legend>
 		<div class="grid_3">
@@ -32,6 +32,10 @@
 		<div class="grid_3">
 			<label for="complex-fr-title">Data Śmierci</label>
 			<input type="text" name="dataSm" class="datepicker hasDatepick full-width" id="" value="<?php echo $jumper->dataSmierci ?>" >
+		</div>
+		<div class="grid_3">
+			<label for="complex-fr-title">Zdjęcie</label>
+			<input type="file" name="photo" class="full-width" id="">
 		</div>
 		<div class="clear"></div>		
 	</fieldset>

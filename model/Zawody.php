@@ -68,4 +68,13 @@ class Model_Zawody extends Lib_model{
 			return $e->getMessgae();
 		}
 	}
+	
+	public function add_score($f)
+	{
+		if(!empty($f['odl']) AND !empty($f['pkt']) AND !empty($f['date']))
+		{
+			$q = $this->db->prepare("INSERT INTO wynik VALUES (".$f['skoczek'].','.$f['sezon'].','.$f['skocznia'].',\''.$f['zawody'].'\','.$f['pkt'].',\''.$f['odl'].'\',\''.$f['typ'].'\',\''.$f['date'].'\')');
+			if(!$q->execute()) return print_r($q->errorInfo(), true); else return true;
+		} else return false;
+	}
 }

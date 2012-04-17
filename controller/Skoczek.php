@@ -20,8 +20,8 @@ class Controller_Skoczek extends Lib_Controller {
 		$this->breadcrumbs['skoczek/list'] = 'List';
 		// Podświetla w podmenu listę, aby to działało poprawnie trzeba też dodać w szablonie odpowiednie rzeczy
 		$this->subcurrent = 'skoczek-list';
-		//$jumpers = $this->model->getJumpers();
-		$jumpers = $this->model->getAll();
+		$jumpers = $this->model->getJumpers();
+		//$jumpers = $this->model->getAll();
 		$this->template->view->set('jumpers', $jumpers);
 				
 		// wyświetlanie wiadomości jest domyślnie zaimplementowane, wystarczy ustawić tą zmeinną w widoku, dostępne typy: pusty, warning, error, success, loading
@@ -43,7 +43,7 @@ class Controller_Skoczek extends Lib_Controller {
 			//sprawdzamy czy podano wszstkie pola które trzeba
 			 if(!empty($_POST['imie']) AND !empty($_POST['nazwisko']) AND !empty($_POST['kraj']) AND !empty($_POST['dataUr']))
 			 {		
-				if(!($e = $this->model->update($id, $_POST)))
+				if(!($e = $this->model->update($id, $_POST, $_FILES)))
 					$this->redirect('/skoczek/list/updated.html');
 				else {
 					$this->template->set('msg', array('type' => "error", 'msg' => "Błąd bazy danych: ".$e));

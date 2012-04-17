@@ -9,6 +9,7 @@ class Lib_Controller {
 	
 	public function __construct($addr)
 	{
+		if(!empty($_GET['method']) AND $_GET['method'] == 'ajax') $this->template = 'templates/ajax';
 		$this->template = lib_View::factory($this->template)->set('view', lib_View::factory($addr['controller'].'/'.$addr['action']));
 		
 		try {

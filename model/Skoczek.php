@@ -2,7 +2,11 @@
 class Model_Skoczek extends Lib_Model {
 	
 	public function getJumpers($limit = 30, $offset = 0) {
-		$q = $this->db->prepare("SELECT * FROM skoczek LIMIT 30 OFFSET 0");
+		$plec = $this->getFromGet('plec', '');
+		if($plec) $plec = ' AND plec=\''.$plec.'\' ';
+		$live = $this->getFromGet('additional', '');
+		if($live) $live = ' AND dataSmierci is NULL ';
+		$q = $this->db->prepare("SELECT * FROM skoczek WHERE (imie LIKE '%".$this->getFromGet('q', '')."%' OR nazwisko LIKE '%".$this->getFromGet('q', '')."%') ".$plec.$live." ORDER BY ".$this->getFromGet('order', $this->pk).' '.$this->getFromGet('dir', 'ASC').' LIMIT '.$this->getFromGet('limit', $this->perpage).' OFFSET '.$this->getFromGet('offset', 0));
 		$q->execute();
 		return $q;
 	}
@@ -100,7 +104,17 @@ class Model_Skoczek extends Lib_Model {
 			$q->bindParam(':dataUr', $post['dataUr'], PDO::PARAM_STR);
 			$q->bindParam(':dataSm', $post['dataSm'], PDO::PARAM_STR);
 			$q->bindParam(':plec', $post['plec'], PDO::PARAM_STR);
-			//if(!$q->execute()) throw new Exception("Database Error: ".print_r($this->db->connection->errorInfo(), true));
+			if(!$q->execute()) throw new Exception("Database Error: ".print_r($q->errorInfo(), true));
+			if(is_array($_FILES))
+			{
+				if($_FILES['photo']['type'] == 'image/jpeg') {
+					$d = $this->db->prepare("UPDATE skoczek SET foto = :photo WHERE idSkoczka = :id LIMIT 1");
+					$d->bindParam(':id', $id, PDO::PARAM_INT);
+					$d->bindValue(':photo', base64_encode(file_get_contents($_FILES['photo']['tmp_name'])));
+					if(!$d->execute()) throw new Exception("Database Error photo: ".print_r($d->errorInfo(), true));
+				} 
+			} 
+			
 			return 0;
 		} catch(Exception $e) {
 			return $e->getMessage();

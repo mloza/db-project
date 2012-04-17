@@ -70,6 +70,6 @@ class Lib_Model {
 	
 	public function getFromGet($name, $default)
 	{
-		if(!empty($_GET[$name])) return $_GET[$name]; else return $default;
+		if(!empty($_GET[$name])) return $_GET[$name]; else if(!empty($_POST[$name])) return $_POST[$name]; else return $default;
 	}
 }

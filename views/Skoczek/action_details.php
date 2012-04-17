@@ -55,7 +55,15 @@
 
 						<div class="clear"></div>
 					</fieldset>
+					<fieldset class="grey-bg grid_4">
+						<legend>Zdjęcie</legend>
+						<div class="" style="line-height: 18px; text-align: center">
+							<img src="data:image/jpeg;base64,<?php echo $jumper->foto; ?>">
+						</div>
 
+						<div class="clear"></div>
+					</fieldset>
+					
 				</form>
 				<div class="clear"></div>
 			</div>

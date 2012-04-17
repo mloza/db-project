@@ -44,6 +44,11 @@ class Controller_Zawody extends Lib_Controller{
 	{
 		$id = $_GET['nazwa'];
 		$contest = $this->model->getContest($id);
-		$this->template->view->set('contest', $contest);
+		$skoczkowie = lib_Model::factory('Skoczek')->getAll()->fetchAll();
+		$this->template->view->set('contest', $contest)->set('skoczkowie', $skoczkowie);
+	}
+	
+	public function action_add() {
+		$this->template->view->set('act', $this->model->add_score($_POST))->set('skoczek', Lib_model::factory('skoczek')->getJumper($_POST['skoczek']));
 	}
 }
